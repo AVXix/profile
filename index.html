@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Avinabo Tarafder</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<!-- profile image with caption underneath -->
+			<figure class="profile-figure">
+				<img src="images/images.png" alt="Avinabo" class="avatar avatar--large" loading="lazy" style="--avatar-size:300px;" width="160" height="160">
+				<figcaption class="profile-name">Avinabo</figcaption>
+			</figure>
+
+			<div>
+				<!-- Icon sizing options:
+				     1) Numeric attributes (preferred): <img src="..." width="30" height="30">
+				     2) Inline style: <img src="..." style="width:30px;height:30px">
+				     3) Utility class: <img src="..." class="icon icon--large">
+				     Change any of these per-icon. CSS utility classes are optional.
+				-->
+				<nav class="social-links">
+                    <a href="https://github.com/AVXix" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+						<img src="images/github.png" alt="GitHub" class="icon" style="width:38px;height:38px">
+					</a>
+
+					<a href="https://www.linkedin.com/in/avinabo-tarafder-322aa1384/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+						<img src="images/linkdin.png" alt="LinkedIn" class="icon" style="width:25px;height:25px">
+					</a>
+					<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+						<img src="images/facebook.png" alt="Facebook" class="icon" style="width:28px;height:28px">
+					</a>
+				</nav>
+
+			</div>
+		</header>
+
+		<main>
+			<section id="personal-info">
+				<h2>About Me</h2>
+				<p>Final-year Computer Science student; I build small web projects and labs.</p>
+			</section>
+
+			<section id="links">
+				<h2>Links</h2>
+				<p>University: <a href="https://www.bracu.ac.bd">BRAC University</a>. Class Discord: <a href="https://discord.gg/sCuYEMjg">Discord</a>.</p>
+				<p>My projects: <a href="https://github.com/AVXix">GitHub</a></p>
+			</section>
+
+			<section id="skills">
+				<h2>Skills</h2>
+				<ul>
+					<li>MERN Stack — MongoDB, Express, React, Node.js</li>
+					<li>Python — Flask, Django</li>
+					<li>SQL — MySQL, SQLite</li>
+					<li>Version Control — Git, GitHub</li>
+					<li>Linux — Bash, Shell Scripting</li>
+				</ul>
+			</section>
+
+			<section id="education">
+				<h2>Education</h2>
+				<div class="table-wrapper">
+					<table class="info-table">
+						<thead>
+							<tr><th>Year</th><th>School</th><th>Notes</th></tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td rowspan="2">2022 – 2026</td>
+								<td>BRAC University</td>
+								<td>BSc in Computer Science</td>
+							</tr>
+							<tr>
+								<td colspan="2">Focus: web development and databases</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<p>&copy; <span id="year"></span> Avinabo Tarafder</p>
+			<p id="meta"></p>
+		</footer>
+	</body>
+</html>

@@ -1,1 +1,60 @@
+/* Trimmed stylesheet: only rules used by the current HTML */
+:root {
+	--bg: #ffffff;
+	--text: #111827;
+	--muted: #6b7280;
+}
+
+* { box-sizing: border-box; }
+html, body {
+	height: 100%;
+	margin: 0;
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: var(--bg);
+	color: var(--text);
+}
+
+header {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem;
+	border-bottom: 1px solid #e5e7eb;
+}
+.profile-figure {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.profile-figure .avatar {
+	border-radius: 9999px;
+	object-fit: cover;
+	display: block;
+}
+
+/* avatar size controlled by --avatar-size; page uses .avatar--large */
+.avatar { width: var(--avatar-size, 72px); height: var(--avatar-size, 72px); }
+.avatar--large { --avatar-size: 160px; }
+
+.profile-name { margin-top: 0.5rem; font-weight: 600; }
+
+.social-links { display: flex; gap: 0.5rem; align-items: center; }
+.icon { display: block; width: auto; height: auto; }
+
+main { padding: 1rem; max-width: 900px; margin: 0 auto; }
+section { margin-bottom: 1.25rem; }
+
+.table-wrapper { overflow: auto; }
+.info-table { width: 100%; border-collapse: collapse; }
+.info-table th, .info-table td { text-align: left; padding: 0.5rem; border-bottom: 1px solid #e5e7eb; }
+.info-table tbody tr:nth-child(odd) { background: #f9fafb; }
+
+footer { padding: 1rem; border-top: 1px solid #e5e7eb; color: var(--muted); font-size: 0.9rem; text-align: center; }
+
+@media (max-width: 520px) {
+	header { flex-direction: column; align-items: flex-start; }
+	.social-links { margin-top: 0.5rem; }
+}
+
 
