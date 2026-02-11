@@ -1,1 +1,103 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 10px;
+  color: #222;
+  line-height: 1.5;
+}
+:root{
+  /* color tokens for light theme (default) */
+  --bg: #ffffff;
+  --text: #222222;
+  --muted: #555555;
+  --header-bg: #fafafa;
+  --link: #0366d6;
+  --table-odd: #ffffff;
+  --table-even: #f8fbff;
+  --table-hover: #eef6ff;
+}
+
+/* dark theme overrides applied when body has .dark */
+body.dark{
+  --bg: #0f1720;
+  --text: #e6eef6;
+  --muted: #9aa6b2;
+  --header-bg: #071023;
+  --link: #58a6ff;
+  --table-odd: #07131a;
+  --table-even: #081822;
+  --table-hover: #08304a;
+}
+
+/* base layout and colors use variables so themes switch cleanly */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 10px;
+  color: #222;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+header h1 { font-size: 1.3rem; margin: 0; }
+.avatar {
+  /* size controlled by --avatar-size (falls back to 72px) */
+  width: var(--avatar-size, 72px);
+  height: var(--avatar-size, 72px);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* avatar size utilities - set the CSS variable numerically */
+.avatar--small  { --avatar-size: 48px; }
+.avatar--medium { --avatar-size: 96px; }
+.avatar--large  { --avatar-size: 160px; }
+
+/* Small utility for social icons used in the header/nav */
+.icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Profile figure: centers the picture and places the name under it */
+.profile-figure { text-align: center; margin: 0; }
+.profile-figure img { display: block; margin: 0 ; }
+.profile-name { margin-top: 0.5rem; font-weight: 600; font-size: 1.5rem; }
+
+/* Ensure header has predictable layout for avatar + name + nav */
+header > div { display: flex; align-items: center; gap: 12px; }
+
+nav a { margin-right: 12px; color: #0366d6; text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+
+main { padding: 16px; max-width: 900px; margin: 0 auto; }
+
+section { margin-bottom: 18px; }
+
+.thumb { max-width: 100%; height: auto; }
+
+.table-wrapper { overflow-x: auto; }
+.info-table { border-collapse: collapse; width: 100%; }
+.info-table th, .info-table td { border: 1px solid #ddd; padding: 8px; }
+.info-table tr:nth-child(even) { background: #f8fbff; }
+.info-table tr:hover { background: #eef6ff; }
+
+footer { text-align: center; padding: 12px; font-size: 0.9rem; color: #555; }
+
+@media (max-width: 560px) {
+  header { flex-direction: column; align-items: flex-start; }
+  .avatar { width: 64px; height: 64px; }
+}
+
+
+
 

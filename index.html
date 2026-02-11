@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- responsive viewport for mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>O_O</title>
+    <!-- external stylesheet for site styling -->
+    <link rel="stylesheet" href="style.css">
+    <!-- main script loaded with defer so it runs after parsing -->
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <!-- profile image with caption underneath -->
+      <figure class="profile-figure">
+        <!-- set numeric avatar size with CSS variable; change value to control size -->
+        <img src="images/images.png" alt="Avinabo" class="avatar avatar--large" loading="lazy" style="--avatar-size:400px;">
+        <!-- <figcaption class="profile-name"></figcaption> -->
+      </figure>
+      <div>
+        <nav>
+          <a href="https://www.linkedin.com/in/avinabo-tarafder-322aa1384/" target="_blank" rel="noopener noreferrer">
+            <img src="images/linkdin.png" alt="LinkedIn logo" class="icon" width="60" height="60" loading="lazy" style="width: 25px;height:25px;">
+          </a>
+          <a href="https://www.facebook.com/your.profile.username" target="_blank" rel="noopener noreferrer">
+            <img src="images/facebook.png" alt="Facebook logo" class="icon" width="60" height="60" loading="lazy" style="width: 27px;height:27px;">
+          </a>
+          <a href="https://github.com/AVXix" target="_blank" rel="noopener noreferrer">
+            <img src="images/github.png" alt="GitHub logo" class="icon" width="60" height="60" loading="lazy" style="width: 38px;height:38px;">
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="About Me">
+        <h2>About Me</h2>
+        <p>last year comp sceince student and i just build stuffs for fun.</p>
+      </section>
+
+      <section id="links">
+        <h2>Links</h2>
+        <p>check my university website at <a href="https://www.bracu.ac.bd">BRAC University</a>. if you want to hang out or want to have conversation you can find me here <a href="https://discord.gg/sCuYEMjg">Discord</a>.</p>
+        <p>find my projects at my github profile<a href="https://github.com/AVXix">GitHub</a></p>
+
+    
+      </section>
+
+      <section id="skills and projects">
+        <h2>Skills</h2>
+        <ul>
+            <li>MERN Stack — MongoDB, Express, React, Node.js</li>
+            <li>Python — Flask, Django</li>
+            <li>SQL — MySQL, SQLite</li>
+            <li>Version Control — Git, GitHub</li>
+            <li>Linux — Bash, Shell Scripting</li>
+            <li>Machine Learning — Scikit-learn, TensorFlow</li>
+            <li>Rust</li>
+
+        </ul>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="table-wrapper">
+          <table class="info-table">
+            <thead>
+              <tr><th>Year</th><th>School</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">2022 – will graduate August 2026</td>
+                <td>BRAC University</td>
+                <td>BSc in Computer Science</td>
+              </tr>
+              <tr>
+                <td colspan="2">Focus</td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Avinabo Tarafder</p>
+      <p id="meta"></p>
+    </footer>
+  </body>
+</html>
+
