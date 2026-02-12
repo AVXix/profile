@@ -15,7 +15,7 @@ Files involved
 
 How it works (contract)
 
-- Input: user clicks the round button with `id="theme-switch"` (or focuses it and presses Enter/Space).
+- Input: user clicks the round button with `id="theme-switch"` 
 - Output: the page theme switches between light and dark by adding/removing `.darkmode` on the `document.body`; the visible icon swaps accordingly.
 - Persistence: the script writes `localStorage.setItem('darkmode','active')` for dark mode and removes that key for light mode; on page load the script reads `localStorage` and restores state.
 - Accessibility: the button has `aria-pressed` set to `true`/`false` and a `title` that updates to indicate the action.
