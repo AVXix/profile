@@ -78,6 +78,10 @@ footer { padding: 1rem; border-top: 1px solid #e5e7eb; color: var(--muted); font
 	top: 20px;
 	right: 20px;
 	cursor: pointer;
+
+	/* icon color follows the page text color for good contrast */
+	color: var(--text);
+	transition: color 200ms ease, background-color 200ms ease;
 }
 
 #theme-switch:focus { outline: 2px solid Highlight; outline-offset: 3px; }
