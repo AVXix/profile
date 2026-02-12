@@ -5,6 +5,12 @@
 	--muted: #6b7280;
 }
 
+.darkmode {
+	--bg: #111827;
+	--text: #ffffff;
+	--muted: #9ca3af;
+}
+
 * { box-sizing: border-box; }
 html, body {
 	height: 100%;
@@ -58,3 +64,35 @@ footer { padding: 1rem; border-top: 1px solid #e5e7eb; color: var(--muted); font
 }
 
 
+
+
+#theme-switch {
+	height: 50px;
+	width: 50px;
+	padding: 0;
+	border-radius: 50%;
+	background-color: var(--base-variant);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 20px;
+	right: 20px;
+
+}
+
+#theme-switch svg {
+	fill: var(--primary-color)
+}
+
+#theme-switch svg:last-child{
+	display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+	display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+	display: block;
+}
