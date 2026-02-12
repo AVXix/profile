@@ -6,17 +6,15 @@
 		<title>Avinabo Tarafder</title>
 		<link rel="stylesheet" href="style.css">
 		<script src="script.js" defer></script>
+		<script src="darkmode.js" defer></script>
 	</head>
 	<body>
 		<header>
-			<button id = "theme-switch">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21m8.485-4.485l-1.06 1.06M4.515 5.515l-1.06 1.06M21 12h-1.5M3 12H1.5m16.243-7.757l-1.06 1.06M5.515 18.485l-1.06 1.06" />
-				</svg>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21m8.485-4.485l-1.06 1.06M4.515 5.515l-1.06 1.06M21 12h-1.5M3 12H1.5m16.243-7.757l-1.06 1.06M5.515 18.485l-1.06 1.06" />
-				</svg>
+			<button id="theme-switch" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+				<img src="images/light_mode.svg" alt="Enable dark mode" class="theme-icon theme-icon--light" width="28" height="28">
+				<img src="images/dark_mode.svg" alt="Enable light mode" class="theme-icon theme-icon--dark" width="28" height="28">
 			</button>
+			
 			<!-- profile image with caption underneath -->
 			<figure class="profile-figure">
 				<img src="images/images.png" alt="Avinabo" class="avatar avatar--large" loading="lazy" style="--avatar-size:300px;" width="160" height="160">
@@ -32,7 +30,7 @@
 				-->
 				<nav class="social-links">
                     <a href="https://github.com/AVXix" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-						<img src="images/github.png" alt="GitHub" class="icon" style="width:38px;height:38px">
+						<img src="images/github.png" alt="GitHub" class="icon" style="width:35px;height:35px">
 					</a>
 
 					<a href="https://www.linkedin.com/in/avinabo-tarafder-322aa1384/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

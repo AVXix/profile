@@ -63,36 +63,27 @@ footer { padding: 1rem; border-top: 1px solid #e5e7eb; color: var(--muted); font
 	.social-links { margin-top: 0.5rem; }
 }
 
-
-
-
 #theme-switch {
 	height: 50px;
 	width: 50px;
 	padding: 0;
 	border-radius: 50%;
-	background-color: var(--base-variant);
+	background-color: transparent;
+	border: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: fixed;
 	top: 20px;
 	right: 20px;
-
+	cursor: pointer;
 }
 
-#theme-switch svg {
-	fill: var(--primary-color)
-}
+#theme-switch:focus { outline: 2px solid Highlight; outline-offset: 3px; }
 
-#theme-switch svg:last-child{
-	display: none;
-}
+#theme-switch .theme-icon { display: block; width: 28px; height: 28px; }
+#theme-switch .theme-icon--dark { display: none; }
 
-.darkmode #theme-switch svg:first-child {
-	display: none;
-}
-
-.darkmode #theme-switch svg:last-child {
-	display: block;
-}
+.darkmode #theme-switch .theme-icon--light { display: none; }
+.darkmode #theme-switch .theme-icon--dark { display: block; }
