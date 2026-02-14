@@ -3,12 +3,32 @@
 	--bg: #ffffff;
 	--text: #111827;
 	--muted: #6b7280;
+	--accent-primary: #0066cc;
+	--accent-secondary: #ff6b35;
+	--accent-discord: #5865f2;
+	--accent-python: #3776ab;
+	--accent-react: #61dafb;
+	--border: #e5e7eb;
+	--table-stripe: #f9fafb;
+	--form-bg: #f2f2f2;
+	--input-bg: #ffffff;
+	--input-border: #ccc;
 }
 
 .darkmode {
 	--bg: #111827;
 	--text: #ffffff;
 	--muted: #9ca3af;
+	--accent-primary: #4da6ff;
+	--accent-secondary: #ff8a50;
+	--accent-discord: #7289da;
+	--accent-python: #5d9ed7;
+	--accent-react: #61dafb;
+	--border: #374151;
+	--table-stripe: #1f2937;
+	--form-bg: #1f2937;
+	--input-bg: #2d3748;
+	--input-border: #4b5563;
 }
 
 * { box-sizing: border-box; }
@@ -25,7 +45,7 @@ header {
 	align-items: center;
 	gap: 1rem;
 	padding: 1rem;
-	border-bottom: 1px solid #e5e7eb;
+	border-bottom: 1px solid var(--border);
 }
 .profile-figure {
 	margin: 0;
@@ -53,10 +73,142 @@ section { margin-bottom: 1.25rem; }
 
 .table-wrapper { overflow: auto; }
 .info-table { width: 100%; border-collapse: collapse; }
-.info-table th, .info-table td { text-align: left; padding: 0.5rem; border-bottom: 1px solid #e5e7eb; }
-.info-table tbody tr:nth-child(odd) { background: #f9fafb; }
+.info-table th, .info-table td { text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--border); }
+.info-table tbody tr:nth-child(odd) { background: var(--table-stripe); }
 
-footer { padding: 1rem; border-top: 1px solid #e5e7eb; color: var(--muted); font-size: 0.9rem; text-align: center; }
+footer { padding: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; text-align: center; }
+
+/* Contact Form Styles */
+.contact-toggle {
+  background-color: var(--accent-primary);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: opacity 200ms ease;
+  margin-bottom: 1rem;
+}
+
+.contact-toggle:hover {
+  opacity: 0.9;
+}
+
+.contact-form {
+  border-radius: 5px;
+  background-color: var(--form-bg);
+  padding: 20px;
+  margin: 1rem 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form.hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+input[type=text], input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  background-color: var(--input-bg);
+  color: var(--text);
+}
+
+input[type=text]:focus, input[type=email]:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+}
+
+input[type=submit], .submit-btn {
+  background-color: var(--accent-primary);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 200ms ease;
+  width: 48%;
+}
+
+input[type=submit]:hover, .submit-btn:hover {
+  opacity: 0.9;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.cancel-btn {
+  width: 48%;
+  background-color: #666;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 200ms ease;
+}
+
+.cancel-btn:hover {
+  opacity: 0.9;
+}
+
+.darkmode .cancel-btn {
+  background-color: #888;
+}
+
+/* Contact Form Styles */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  background-color: var(--input-bg);
+  color: var(--text);
+}
+
+input[type=submit] {
+  background-color: var(--accent-primary);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 200ms ease;
+}
+
+input[type=submit]:hover {
+  opacity: 0.9;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: var(--form-bg);
+  padding: 20px;
+  margin-bottom: 1rem;
+}
 
 @media (max-width: 520px) {
 	header { flex-direction: column; align-items: flex-start; }

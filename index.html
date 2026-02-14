@@ -24,11 +24,13 @@
 			
 			<!-- profile image with caption underneath -->
 			<figure class="profile-figure">
-				<img src="images/images.png" alt="Avinabo" class="avatar avatar--large" loading="lazy" style="--avatar-size:300px;" width="160" height="160">
-				<figcaption class="profile-name">Avinabo</figcaption>
+				<img src="images/rick.jpg" alt="Avinabo" class="avatar avatar--large" loading="lazy" style="--avatar-size:300px;" width="160" height="160">
+				<figcaption class="profile-name">-Avinabo</figcaption>
 			</figure>
 
 			<div>
+
+
 				<!-- Icon sizing options:
 				     1) Numeric attributes (preferred): <img src="..." width="30" height="30">
 				     2) Inline style: <img src="..." style="width:30px;height:30px">
@@ -54,23 +56,23 @@
 		<main>
 			<section id="personal-info">
 				<h2>About Me</h2>
-				<p>Final-year Computer Science student; I build small web projects and labs.</p>
+				<p><strong>Final-year</strong> Computer Science student at <em style="color: var(--accent-primary);">BRAC University</em>; I build small <strong>web projects</strong> and <strong>labs</strong>. Passionate about <span style="color: var(--accent-secondary);">web development</span> and <span style="color: var(--accent-secondary);">open-source</span> technology.</p>
 			</section>
 
 			<section id="links">
 				<h2>Links</h2>
-				<p>University: <a href="https://www.bracu.ac.bd">BRAC University</a>. Class Discord: <a href="https://discord.gg/sCuYEMjg">Discord</a>.</p>
-				<p>My projects: <a href="https://github.com/AVXix">GitHub</a></p>
+				<p><strong>University:</strong> <a href="https://www.bracu.ac.bd" style="font-weight: 600; color: var(--accent-primary);">BRAC University</a>. <strong>Class Discord:</strong> <a href="https://discord.gg/sCuYEMjg" style="font-weight: 600; color: var(--accent-discord);">Discord</a>.</p>
+				<p><em>My projects:</em> <a href="https://github.com/AVXix" style="font-weight: 600; color: var(--text);">GitHub</a></p>
 			</section>
 
 			<section id="skills">
 				<h2>Skills</h2>
 				<ul>
-					<li>MERN Stack — MongoDB, Express, React, Node.js</li>
-					<li>Python — Flask, Django</li>
-					<li>SQL — MySQL, SQLite</li>
-					<li>Version Control — Git, GitHub</li>
-					<li>Linux — Bash, Shell Scripting</li>
+					<li><strong style="color: var(--accent-react);">MERN Stack</strong> — MongoDB, Express, React, Node.js</li>
+					<li><strong style="color: var(--accent-python);">Python</strong> — Flask, Django</li>
+					<li><strong style="color: var(--accent-primary);">SQL</strong> — MySQL, SQLite</li>
+					<li><strong style="color: var(--accent-secondary);">Version Control</strong> — Git, GitHub</li>
+					<li><em style="color: var(--text);">Linux</em> — Bash, Shell Scripting</li>
 				</ul>
 			</section>
 
@@ -83,12 +85,12 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td rowspan="2">2022 – 2026</td>
-								<td>BRAC University</td>
-								<td>BSc in Computer Science</td>
+								<td rowspan="2"><strong>2022 – 2026</strong></td>
+								<td><strong style="color: var(--accent-primary);">BRAC University</strong></td>
+								<td><em>BSc in Computer Science</em></td>
 							</tr>
 							<tr>
-								<td colspan="2">Focus: web development and databases</td>
+								<td colspan="2"><strong>Focus:</strong> <span style="color: var(--accent-secondary);">web development</span> and <span style="color: var(--accent-secondary);">databases</span></td>
 							</tr>
 						</tbody>
 					</table>
@@ -97,6 +99,27 @@
 		</main>
 
 		<footer>
+			<button id="contact-btn" class="contact-toggle">Contact Me</button>
+			<div id="contact-form" class="contact-form hidden">
+				<form id="contact-form-element" action="https://formspree.io/f/xjgewwgw" method="POST">
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" placeholder="Your name.." required>
+
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" placeholder="Your email.." required>
+
+					<label for="reason">Reason</label>
+					<input type="text" id="reason" name="reason" placeholder="Reason for contact (max 100 characters)" maxlength="100" required>
+
+					<label for="description">Description</label>
+					<textarea id="description" name="description" placeholder="Write in details.." style="height:200px" required></textarea>
+
+					<div class="form-buttons">
+						<button type="submit" class="submit-btn">Submit</button>
+						<button type="button" id="cancel-btn" class="cancel-btn">Cancel</button>
+					</div>
+				</form>
+			</div>
 			<p>&copy; <span id="year"></span> Avinabo Tarafder</p>
 			<p id="meta"></p>
 		</footer>

@@ -12,19 +12,19 @@ const enableDarkmode = () => {
 
 const disableDarkmode = () => {
   document.body.classList.remove("darkmode");
-  localStorage.removeItem("darkmode");
+  localStorage.setItem("darkmode", "inactive");
   if (themeSwitch) {
     themeSwitch.setAttribute('aria-pressed', 'false');
     themeSwitch.title = 'Switch to dark theme';
   }
 };
 
-// restore saved state (only runs if value was 'active')
-if (darkmode === "active") {
-  enableDarkmode();
+// dark mode is default; light mode requires explicit opt-out
+if (darkmode === "inactive") {
+  disableDarkmode();
 } else {
-  // ensure correct aria state on load
-  if (themeSwitch) themeSwitch.setAttribute('aria-pressed', 'false');
+  // enable dark mode by default
+  enableDarkmode();
 }
 
 // attach handler only if the button exists
