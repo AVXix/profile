@@ -1,62 +1,80 @@
-/* 
- * Personal Portfolio - Main Stylesheet
- * Light mode defaults to clean white, dark mode kicks in for late-night viewers
- * Using CSS variables instead of duplicating rules because I got tired of maintaining two separate stylesheets
- */
+/* Avinabo Tarafder — portfolio styles
+	Theme is just variables + a `.darkmode` class on <body>. */
 
 :root {
-	/* Light mode - clean and readable during the day */
-	--bg: #dadada; /* light background*/
-	--text: #111827; /* dark text for readability on light bg */
-	--muted: #6b7280; /* gray for secondary/smaller text */
-	
-	/* Primary button and link color - stands out but not aggressively */
-	--accent-primary: #0066cc;
-	--accent-secondary: #ff6b35; /* orange accent for diversity */
-	
-	/* Tech stack branding - color coding for skills/tools mentioned */
-	--accent-discord: #5865f2; 
-	--accent-python: #3776ab; 
-	--accent-react: #61dafb; 
-	
-	/* UI elements */
-	--border: #e5e7eb; /* subtle light borders */
-	--table-stripe: #f9fafb; /* very faint striping for table readability */
-	--form-bg: #f2f2f2; /* slightly darker than main bg */
-	--input-bg: #e8e8e8; /* light gray inputs blend with bg */
-	--input-border: #ccc; /* neutral gray border */
+	/* Named tokens (used by the stylesheet) */
+	--brand-bg: #dadada;
+	--brand-ink: #111827;
+	--brand-muted: #6b7280;
+	--brand-link: #0066cc;
+	--brand-highlight: #ff6b35;
+
+	--ui-border: #e5e7eb;
+	--ui-row-alt: #f9fafb;
+	--ui-surface: #f2f2f2;
+	--ui-field: #e8e8e8;
+	--ui-field-border: #ccc;
+
+	--fx-shadow-soft: rgba(0, 0, 0, 0.1);
+	--fx-ring: 0 0 0 3px rgba(0, 102, 204, 0.15);
+	--fx-link-wash: rgba(0, 102, 204, 0.05);
+	--fx-highlight-wash: rgba(255, 107, 53, 0.05);
+	--fx-highlight-wash-strong: rgba(255, 107, 53, 0.1);
+	--fx-fab-hover: rgba(0, 0, 0, 0.05);
+	--fx-link-hover: #0052a3;
+
+	/* Compatibility aliases (used by HTML inline styles + older rules) */
+	--bg: var(--brand-bg);
+	--text: var(--brand-ink);
+	--muted: var(--brand-muted);
+	--accent-primary: var(--brand-link);
+	--accent-secondary: var(--brand-highlight);
+	--border: var(--ui-border);
+	--table-stripe: var(--ui-row-alt);
+	--form-bg: var(--ui-surface);
+	--input-bg: var(--ui-field);
+	--input-border: var(--ui-field-border);
+	--shadow-soft: var(--fx-shadow-soft);
+	--focus-ring: var(--fx-ring);
+	--accent-primary-soft: var(--fx-link-wash);
+	--accent-secondary-soft: var(--fx-highlight-wash);
+	--accent-secondary-soft-hover: var(--fx-highlight-wash-strong);
+	--theme-switch-hover: var(--fx-fab-hover);
+	--accent-primary-hover: var(--fx-link-hover);
+
+	/* Small one-offs used in the content */
+	--accent-discord: #5865f2;
+	--accent-python: #3776ab;
+	--accent-react: #61dafb;
 }
 
 .darkmode {
-	/* Dark mode - same variables, inverted colors for night viewing */
-	--bg: #111827; /* almost-black background */
-	--text: #ffffff; /* white text for contrast */
-	--muted: #9ca3af; /* lighter gray for secondary text */
-	
-	/* Brighter/lighter versions of accents to work against dark bg */
-	--accent-primary: #4da6ff; /* lighter blue */
-	--accent-secondary: #ff8a50; /* lighter orange */
+	--brand-bg: #111827;
+	--brand-ink: #ffffff;
+	--brand-muted: #9ca3af;
+	--brand-link: #4da6ff;
+	--brand-highlight: #ff8a50;
+
+	--ui-border: #374151;
+	--ui-row-alt: #1f2937;
+	--ui-surface: #1f2937;
+	--ui-field: #2d3748;
+	--ui-field-border: #4b5563;
+
+	/* keep these distinct in dark mode */
 	--accent-discord: #7289da;
 	--accent-python: #5d9ed7;
-	--accent-react: #61dafb; /* stays same, works well in both themes */
-	
-	/* Darker UI element colors */
-	--border: #374151; /* darker gray borders */
-	--table-stripe: #1f2937; /* very subtle dark striping */
-	--form-bg: #1f2937; /* dark form background */
-	--input-bg: #2d3748; /* slightly lighter inputs for distinction */
-	--input-border: #4b5563; /* darker border for inputs */
+	--accent-react: #61dafb;
 }
 
-/* Reset + base styles - nothing fancy, just working defaults */
 * { box-sizing: border-box; }
 html, body {
 	min-height: 100vh;
 	margin: 0;
 	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-	background: var(--bg);
-	color: var(--text);
-	transition: background-color 0.3s, color 0.3s; /* smooth theme switch */
+	background: var(--brand-bg);
+	color: var(--brand-ink);
+	transition: background-color 0.3s, color 0.3s;
 }
 
 body {
@@ -71,14 +89,12 @@ main {
 	margin: 0 auto;
 	width: 100%;
 }
-
-/* Header - name, pic, and socials. Flexbox because everything's flexbox nowadays */
 header {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
 	padding: 1rem;
-	border-bottom: 1px solid var(--border);
+	border-bottom: 1px solid var(--ui-border);
 }
 .profile-figure {
 	margin: 0;
@@ -86,7 +102,6 @@ header {
 	flex-direction: column;
 	align-items: center;
 }
-/* Avatar - using a custom property so we can have large version in hero, small elsewhere */
 .profile-figure .avatar {
 	border-radius: 9999px;
 	object-fit: cover;
@@ -97,7 +112,7 @@ header {
 	width: var(--avatar-size, 72px);
 	height: var(--avatar-size, 72px);
 }
-.avatar--large { --avatar-size: 160px; } /* big square for the hero section */
+.avatar--large { --avatar-size: 160px; }
 
 .profile-name {
 	margin-top: 0.5rem;
@@ -114,7 +129,6 @@ header {
 	display: flex;
 	gap: 0.5rem;
 	align-items: center;
-	/* icons will overflow on tiny screens but people can scroll */
 }
 .icon {
 	display: block;
@@ -123,7 +137,6 @@ header {
 	transition: transform 0.2s;
 }
 
-/* when cursor is on those social icons it hops a little*/
 .icon:hover {
 	animation: bounce 0.6s ease;
 }
@@ -135,12 +148,11 @@ header {
 
 section { margin-bottom: 1.25rem; }
 
-/* Tab Navigation */
 .tab-navigation {
 	display: flex;
 	gap: 0.5rem;
 	margin-bottom: 2rem;
-	border-bottom: 2px solid var(--border);
+	border-bottom: 2px solid var(--ui-border);
 	padding-bottom: 0;
 }
 
@@ -150,7 +162,7 @@ section { margin-bottom: 1.25rem; }
 	padding: 0.75rem 1.5rem;
 	font-size: 1rem;
 	font-weight: 600;
-	color: var(--muted);
+	color: var(--brand-muted);
 	cursor: pointer;
 	position: relative;
 	transition: all 0.3s ease;
@@ -158,8 +170,8 @@ section { margin-bottom: 1.25rem; }
 }
 
 .tab-btn:hover {
-	color: var(--text);
-	background: rgba(0, 102, 204, 0.05);
+	color: var(--brand-ink);
+	background: var(--accent-primary-soft);
 }
 
 .tab-btn.active {
@@ -167,7 +179,6 @@ section { margin-bottom: 1.25rem; }
 	border-bottom-color: var(--accent-primary);
 }
 
-/* Tab Content */
 .tab-content {
 	display: none;
 	animation: fadeIn 0.3s ease;
@@ -188,17 +199,16 @@ section { margin-bottom: 1.25rem; }
 	}
 }
 
-/* Project items styling */
 .project-item {
 	padding: 1rem;
 	border-left: 3px solid var(--accent-secondary);
-	background: rgba(255, 107, 53, 0.05);
+	background: var(--accent-secondary-soft);
 	border-radius: 4px;
 	transition: all 0.3s ease;
 }
 
 .project-item:hover {
-	background: rgba(255, 107, 53, 0.1);
+	background: var(--accent-secondary-soft-hover);
 	transform: translateX(5px);
 }
 
@@ -212,7 +222,7 @@ section { margin-bottom: 1.25rem; }
 }
 
 .project-item code {
-	background: var(--input-bg);
+	background: var(--ui-field);
 	padding: 2px 6px;
 	border-radius: 3px;
 	font-size: 0.9em;
@@ -229,14 +239,13 @@ section { margin-bottom: 1.25rem; }
 .info-table td {
 	text-align: left;
 	padding: 0.75rem 0.5rem;
-	border-bottom: 1px solid var(--border);
+	border-bottom: 1px solid var(--ui-border);
 }
 .info-table th { font-weight: 600; }
-.info-table tbody tr:nth-child(odd) { background: var(--table-stripe); }
+.info-table tbody tr:nth-child(odd) { background: var(--ui-row-alt); }
 
-footer { padding: 1rem; border-top: 1px solid var(--border); background: var(--form-bg); color: var(--muted); font-size: 0.9rem; text-align: center; }
+footer { padding: 1rem; border-top: 1px solid var(--ui-border); background: var(--ui-surface); color: var(--brand-muted); font-size: 0.9rem; text-align: center; }
 
-/* Contact form - hidden by default to keep the page clean */
 .contact-form-section { margin-top: 2rem; }
 
 .contact-toggle {
@@ -253,7 +262,7 @@ footer { padding: 1rem; border-top: 1px solid var(--border); background: var(--f
 }
 
 .contact-toggle:hover {
-	background-color: #0052a3; /* darker blue for better feedback */
+	background-color: var(--accent-primary-hover);
 	transform: translateY(-2px);
 }
 
@@ -261,46 +270,43 @@ footer { padding: 1rem; border-top: 1px solid var(--border); background: var(--f
 
 .contact-form {
 	border-radius: 8px;
-	background-color: var(--form-bg);
+	background-color: var(--ui-surface);
 	padding: 2rem;
 	margin: 2rem auto;
 	max-width: 500px;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	box-shadow: 0 2px 4px var(--shadow-soft);
 }
 
 .contact-form.hidden,
 .hidden { display: none !important; }
 
-/* Form inputs - kept simple, consistent styling */
 input[type=text],
 input[type=email],
 select,
 textarea {
 	width: 100%;
 	padding: 10px 12px;
-	border: 2px solid var(--input-border);
+	border: 2px solid var(--ui-field-border);
 	border-radius: 6px;
 	margin-top: 8px;
 	margin-bottom: 16px;
-	background-color: var(--input-bg);
-	color: var(--text);
+	background-color: var(--ui-field);
+	color: var(--brand-ink);
 	font-family: inherit;
 	font-size: 1rem;
 }
 
 textarea { resize: vertical; min-height: 120px; }
 
-/* Focus state - bigger border change than hover for clear feedback */
 input[type=text]:focus,
 input[type=email]:focus,
 select:focus,
 textarea:focus {
 	outline: none;
 	border-color: var(--accent-primary);
-	box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+	box-shadow: var(--focus-ring);
 }
 
-/* Buttons - submit and cancel side by side */
 input[type=submit],
 .submit-btn {
 	background-color: var(--accent-primary);
@@ -317,7 +323,7 @@ input[type=submit],
 
 input[type=submit]:hover,
 .submit-btn:hover {
-	background-color: #0052a3;
+	background-color: var(--accent-primary-hover);
 }
 
 input[type=submit]:active,
@@ -355,12 +361,11 @@ input[type=submit]:active,
 
 .container {
 	border-radius: 8px;
-	background-color: var(--form-bg);
+	background-color: var(--ui-surface);
 	padding: 1.5rem;
 	margin-bottom: 1rem;
 }
 
-/* Mobile adjustments - stack header vertically, condense form buttons */
 @media (max-width: 768px) {
 	header {
 		flex-direction: column;
@@ -380,7 +385,6 @@ input[type=submit]:active,
 	.contact-form { padding: 1.5rem; }
 }
 
-/* Theme toggle - fixed in corner so it's always accessible */
 #theme-switch {
 	height: 50px;
 	width: 50px;
@@ -388,7 +392,7 @@ input[type=submit]:active,
 	border-radius: 50%;
 	background-color: transparent;
 	border: none;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	box-shadow: 0 2px 8px var(--shadow-soft);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -396,13 +400,13 @@ input[type=submit]:active,
 	top: 20px;
 	right: 20px;
 	cursor: pointer;
-	color: var(--text);
+	color: var(--brand-ink);
 	transition: all 200ms ease;
 	z-index: 1000;
 }
 
 #theme-switch:hover {
-	background-color: rgba(0,0,0,0.05);
+	background-color: var(--theme-switch-hover);
 	transform: scale(1.1);
 }
 
