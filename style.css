@@ -104,7 +104,16 @@ header {
 	height: auto;
 	transition: transform 0.2s;
 }
-.icon:hover { transform: scale(1.15); }
+
+/* when cursor is on those social icons it hops a little*/
+.icon:hover {
+	animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-8px); }
+}
 
 main { padding: 1rem; max-width: 900px; margin: 0 auto; }
 section { margin-bottom: 1.25rem; }
