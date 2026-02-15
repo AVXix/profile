@@ -1,36 +1,54 @@
-/* Trimmed stylesheet: only rules used by the current HTML */
+/* 
+ * Personal Portfolio - Main Stylesheet
+ * Light mode defaults to clean white, dark mode kicks in for late-night viewers
+ * Using CSS variables instead of duplicating rules because I got tired of maintaining two separate stylesheets
+ */
+
 :root {
-	--bg: #ffffff;
-	--text: #111827;
-	--muted: #6b7280;
+	/* Light mode - clean and readable during the day */
+	--bg: #dadada; /* light background*/
+	--text: #111827; /* dark text for readability on light bg */
+	--muted: #6b7280; /* gray for secondary/smaller text */
+	
+	/* Primary button and link color - stands out but not aggressively */
 	--accent-primary: #0066cc;
-	--accent-secondary: #ff6b35;
-	--accent-discord: #5865f2;
-	--accent-python: #3776ab;
-	--accent-react: #61dafb;
-	--border: #e5e7eb;
-	--table-stripe: #f9fafb;
-	--form-bg: #f2f2f2;
-	--input-bg: #ffffff;
-	--input-border: #ccc;
+	--accent-secondary: #ff6b35; /* orange accent for diversity */
+	
+	/* Tech stack branding - color coding for skills/tools mentioned */
+	--accent-discord: #5865f2; 
+	--accent-python: #3776ab; 
+	--accent-react: #61dafb; 
+	
+	/* UI elements */
+	--border: #e5e7eb; /* subtle light borders */
+	--table-stripe: #f9fafb; /* very faint striping for table readability */
+	--form-bg: #f2f2f2; /* slightly darker than main bg */
+	--input-bg: #ffffff; /* white inputs stand out from form */
+	--input-border: #ccc; /* neutral gray border */
 }
 
 .darkmode {
-	--bg: #111827;
-	--text: #ffffff;
-	--muted: #9ca3af;
-	--accent-primary: #4da6ff;
-	--accent-secondary: #ff8a50;
+	/* Dark mode - same variables, inverted colors for night viewing */
+	--bg: #111827; /* almost-black background */
+	--text: #ffffff; /* white text for contrast */
+	--muted: #9ca3af; /* lighter gray for secondary text */
+	
+	/* Brighter/lighter versions of accents to work against dark bg */
+	--accent-primary: #4da6ff; /* lighter blue */
+	--accent-secondary: #ff8a50; /* lighter orange */
 	--accent-discord: #7289da;
 	--accent-python: #5d9ed7;
-	--accent-react: #61dafb;
-	--border: #374151;
-	--table-stripe: #1f2937;
-	--form-bg: #1f2937;
-	--input-bg: #2d3748;
-	--input-border: #4b5563;
+	--accent-react: #61dafb; /* stays same, works well in both themes */
+	
+	/* Darker UI element colors */
+	--border: #374151; /* darker gray borders */
+	--table-stripe: #1f2937; /* very subtle dark striping */
+	--form-bg: #1f2937; /* dark form background */
+	--input-bg: #2d3748; /* slightly lighter inputs for distinction */
+	--input-border: #4b5563; /* darker border for inputs */
 }
 
+/* Reset + base styles - nothing fancy, just working defaults */
 * { box-sizing: border-box; }
 html, body {
 	height: 100%;
@@ -38,8 +56,10 @@ html, body {
 	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 	background: var(--bg);
 	color: var(--text);
+	transition: background-color 0.3s, color 0.3s; /* smooth theme switch */
 }
 
+/* Header - name, pic, and socials. Flexbox because everything's flexbox nowadays */
 header {
 	display: flex;
 	align-items: center;
@@ -53,168 +73,204 @@ header {
 	flex-direction: column;
 	align-items: center;
 }
+/* Avatar - using a custom property so we can have large version in hero, small elsewhere */
 .profile-figure .avatar {
 	border-radius: 9999px;
 	object-fit: cover;
 	display: block;
 }
 
-/* avatar size controlled by --avatar-size; page uses .avatar--large */
-.avatar { width: var(--avatar-size, 72px); height: var(--avatar-size, 72px); }
-.avatar--large { --avatar-size: 160px; }
+.avatar {
+	width: var(--avatar-size, 72px);
+	height: var(--avatar-size, 72px);
+}
+.avatar--large { --avatar-size: 160px; } /* big square for the hero section */
 
-.profile-name { margin-top: 0.5rem; font-weight: 600; }
+.profile-name {
+	margin-top: 0.5rem;
+	font-weight: 600;
+	line-height: 1.2;
+}
 
-.social-links { display: flex; gap: 0.5rem; align-items: center; }
-.icon { display: block; width: auto; height: auto; }
+.social-links {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	/* icons will overflow on tiny screens but people can scroll */
+}
+.icon {
+	display: block;
+	width: auto;
+	height: auto;
+	transition: transform 0.2s;
+}
+.icon:hover { transform: scale(1.15); }
 
 main { padding: 1rem; max-width: 900px; margin: 0 auto; }
 section { margin-bottom: 1.25rem; }
 
 .table-wrapper { overflow: auto; }
-.info-table { width: 100%; border-collapse: collapse; }
-.info-table th, .info-table td { text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--border); }
+.info-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.95rem;
+}
+.info-table th,
+.info-table td {
+	text-align: left;
+	padding: 0.75rem 0.5rem;
+	border-bottom: 1px solid var(--border);
+}
+.info-table th { font-weight: 600; }
 .info-table tbody tr:nth-child(odd) { background: var(--table-stripe); }
 
 footer { padding: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; text-align: center; }
 
-/* Contact Form Styles */
+/* Contact form - hidden by default to keep the page clean */
+.contact-form-section { margin-top: 2rem; }
+
 .contact-toggle {
-  background-color: var(--accent-primary);
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: opacity 200ms ease;
-  margin-bottom: 1rem;
+	background-color: var(--accent-primary);
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 1rem;
+	transition: all 200ms ease;
+	margin-bottom: 1rem;
 }
 
 .contact-toggle:hover {
-  opacity: 0.9;
+	background-color: #0052a3; /* darker blue for better feedback */
+	transform: translateY(-2px);
 }
+
+.contact-toggle:active { transform: translateY(0); }
 
 .contact-form {
-  border-radius: 5px;
-  background-color: var(--form-bg);
-  padding: 20px;
-  margin: 1rem 0;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+	border-radius: 8px;
+	background-color: var(--form-bg);
+	padding: 2rem;
+	margin: 2rem auto;
+	max-width: 500px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.contact-form.hidden {
-  display: none;
+.contact-form.hidden,
+.hidden { display: none !important; }
+
+/* Form inputs - kept simple, consistent styling */
+input[type=text],
+input[type=email],
+select,
+textarea {
+	width: 100%;
+	padding: 10px 12px;
+	border: 2px solid var(--input-border);
+	border-radius: 6px;
+	margin-top: 8px;
+	margin-bottom: 16px;
+	background-color: var(--input-bg);
+	color: var(--text);
+	font-family: inherit;
+	font-size: 1rem;
 }
 
-.hidden {
-  display: none;
+textarea { resize: vertical; min-height: 120px; }
+
+/* Focus state - bigger border change than hover for clear feedback */
+input[type=text]:focus,
+input[type=email]:focus,
+select:focus,
+textarea:focus {
+	outline: none;
+	border-color: var(--accent-primary);
+	box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
 }
 
-input[type=text], input[type=email], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-  background-color: var(--input-bg);
-  color: var(--text);
+/* Buttons - submit and cancel side by side */
+input[type=submit],
+.submit-btn {
+	background-color: var(--accent-primary);
+	color: white;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 1rem;
+	transition: all 200ms ease;
+	width: 48%;
 }
 
-input[type=text]:focus, input[type=email]:focus, select:focus, textarea:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+input[type=submit]:hover,
+.submit-btn:hover {
+	background-color: #0052a3;
 }
 
-input[type=submit], .submit-btn {
-  background-color: var(--accent-primary);
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: opacity 200ms ease;
-  width: 48%;
-}
-
-input[type=submit]:hover, .submit-btn:hover {
-  opacity: 0.9;
+input[type=submit]:active,
+.submit-btn:active {
+	transform: scale(0.98);
 }
 
 .form-buttons {
-  display: flex;
-  gap: 1rem;
+	display: flex;
+	gap: 1rem;
+	margin-top: 1.5rem;
 }
 
 .cancel-btn {
-  width: 48%;
-  background-color: #666;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: opacity 200ms ease;
+	width: 48%;
+	background-color: #999;
+	color: white;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: 600;
+	transition: all 200ms ease;
 }
 
-.cancel-btn:hover {
-  opacity: 0.9;
-}
+.cancel-btn:hover { background-color: #777; }
 
 .darkmode .cancel-btn {
-  background-color: #888;
+	background-color: #555;
 }
 
-/* Contact Form Styles */
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-  background-color: var(--input-bg);
-  color: var(--text);
-}
-
-input[type=submit] {
-  background-color: var(--accent-primary);
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: opacity 200ms ease;
-}
-
-input[type=submit]:hover {
-  opacity: 0.9;
+.darkmode .cancel-btn:hover {
+	background-color: #666;
 }
 
 .container {
-  border-radius: 5px;
-  background-color: var(--form-bg);
-  padding: 20px;
-  margin-bottom: 1rem;
+	border-radius: 8px;
+	background-color: var(--form-bg);
+	padding: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+/* Mobile adjustments - stack header vertically, condense form buttons */
+@media (max-width: 768px) {
+	header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.social-links { margin-top: 0.75rem; }
+	
+	.form-buttons {
+		flex-direction: column;
+	}
+	.submit-btn,
+	.cancel-btn { width: 100%; }
 }
 
 @media (max-width: 520px) {
-	header { flex-direction: column; align-items: flex-start; }
-	.social-links { margin-top: 0.5rem; }
+	main { padding: 0.75rem; }
+	.contact-form { padding: 1.5rem; }
 }
 
+/* Theme toggle - fixed in corner so it's always accessible */
 #theme-switch {
 	height: 50px;
 	width: 50px;
@@ -222,7 +278,7 @@ input[type=submit]:hover {
 	border-radius: 50%;
 	background-color: transparent;
 	border: none;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -230,15 +286,22 @@ input[type=submit]:hover {
 	top: 20px;
 	right: 20px;
 	cursor: pointer;
-
-	/* icon color follows the page text color for good contrast */
 	color: var(--text);
-	transition: color 200ms ease, background-color 200ms ease;
+	transition: all 200ms ease;
+	z-index: 1000;
 }
 
-#theme-switch:focus { outline: 2px solid Highlight; outline-offset: 3px; }
+#theme-switch:hover {
+	background-color: rgba(0,0,0,0.05);
+	transform: scale(1.1);
+}
 
-#theme-switch .theme-icon { display: block; width: 28px; height: 28px; }
+#theme-switch:focus {
+	outline: 2px solid var(--accent-primary);
+	outline-offset: 3px;
+}
+
+#theme-switch .theme-icon { display: block; width: 24px; height: 24px; }
 #theme-switch .theme-icon--dark { display: none; }
 
 .darkmode #theme-switch .theme-icon--light { display: none; }
