@@ -1,36 +1,54 @@
-// Minimal script: fill copyright year and page metadata
-document.addEventListener('DOMContentLoaded', function () {
-	var yearEl = document.getElementById('year');
-	if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-	var metaEl = document.getElementById('meta');
-	if (metaEl) {
-		var url = location.href;
-		var modified = document.lastModified || '';
-		metaEl.textContent = url + (modified ? ' — last modified: ' + modified : '');
+document.addEventListener('DOMContentLoaded', function() {
+	// update copyright year
+	const copyrightYear = document.getElementById('year');
+	if (copyrightYear) {
+		copyrightYear.textContent = new Date().getFullYear();
 	}
 
-	// Contact form toggle functionality
-	var contactBtn = document.getElementById('contact-btn');
-	var contactForm = document.getElementById('contact-form');
-	var contactFormElement = document.getElementById('contact-form-element');
-	var cancelBtn = document.getElementById('cancel-btn');
+	// page meta info
+	const meta = document.getElementById('meta');
+	if (meta) {
+		const currentUrl = location.href;
+		const lastMod = document.lastModified || '';
+		meta.textContent = currentUrl + (lastMod ? ' — last modified: ' + lastMod : '');
+	}
 
-	if (contactBtn && contactForm && contactFormElement) {
-		// Show form when button is clicked
-		contactBtn.addEventListener('click', function() {
-			contactBtn.classList.add('hidden');
-			contactForm.classList.remove('hidden');
+	// contact form stuff
+	const showContactBtn = document.getElementById('contact-btn');
+	const formContainer = document.getElementById('contact-form');
+	const theForm = document.getElementById('contact-form-element');
+	const cancel = document.getElementById('cancel-btn');
+
+	if (showContactBtn && formContainer) {
+		showContactBtn.addEventListener('click', () => {
+			showContactBtn.classList.add('hidden');
+			formContainer.classList.remove('hidden');
 		});
 
-		// Hide form and show button on cancel
-		if (cancelBtn) {
-			cancelBtn.addEventListener('click', function() {
-				contactForm.classList.add('hidden');
-				contactBtn.classList.remove('hidden');
-				contactFormElement.reset();
+		if (cancel && theForm) {
+			cancel.addEventListener('click', () => {
+				formContainer.classList.add('hidden');
+				showContactBtn.classList.remove('hidden');
+				theForm.reset(); // clear the form
 			});
 		}
 	}
+
+	// tabs
+	const tabs = document.querySelectorAll('.tab-btn');
+	const panels = document.querySelectorAll('.tab-content');
+
+	tabs.forEach(tab => {
+		tab.addEventListener('click', function() {
+			const which = this.getAttribute('data-tab');
+			
+			tabs.forEach(t => t.classList.remove('active'));
+			panels.forEach(p => p.classList.remove('active'));
+			
+			this.classList.add('active');
+			const panel = document.getElementById(which + '-tab');
+			if (panel) panel.classList.add('active');
+		});
+	});
 });
 

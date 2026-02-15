@@ -23,7 +23,7 @@
 	--border: #e5e7eb; /* subtle light borders */
 	--table-stripe: #f9fafb; /* very faint striping for table readability */
 	--form-bg: #f2f2f2; /* slightly darker than main bg */
-	--input-bg: #ffffff; /* white inputs stand out from form */
+	--input-bg: #e8e8e8; /* light gray inputs blend with bg */
 	--input-border: #ccc; /* neutral gray border */
 }
 
@@ -51,12 +51,25 @@
 /* Reset + base styles - nothing fancy, just working defaults */
 * { box-sizing: border-box; }
 html, body {
-	height: 100%;
+	min-height: 100vh;
 	margin: 0;
 	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 	background: var(--bg);
 	color: var(--text);
 	transition: background-color 0.3s, color 0.3s; /* smooth theme switch */
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+	padding: 1rem;
+	max-width: 900px;
+	margin: 0 auto;
+	width: 100%;
 }
 
 /* Header - name, pic, and socials. Flexbox because everything's flexbox nowadays */
@@ -120,8 +133,91 @@ header {
 	50% { transform: translateY(-8px); }
 }
 
-main { padding: 1rem; max-width: 900px; margin: 0 auto; }
 section { margin-bottom: 1.25rem; }
+
+/* Tab Navigation */
+.tab-navigation {
+	display: flex;
+	gap: 0.5rem;
+	margin-bottom: 2rem;
+	border-bottom: 2px solid var(--border);
+	padding-bottom: 0;
+}
+
+.tab-btn {
+	background: transparent;
+	border: none;
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--muted);
+	cursor: pointer;
+	position: relative;
+	transition: all 0.3s ease;
+	border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+	color: var(--text);
+	background: rgba(0, 102, 204, 0.05);
+}
+
+.tab-btn.active {
+	color: var(--accent-primary);
+	border-bottom-color: var(--accent-primary);
+}
+
+/* Tab Content */
+.tab-content {
+	display: none;
+	animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Project items styling */
+.project-item {
+	padding: 1rem;
+	border-left: 3px solid var(--accent-secondary);
+	background: rgba(255, 107, 53, 0.05);
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+.project-item:hover {
+	background: rgba(255, 107, 53, 0.1);
+	transform: translateX(5px);
+}
+
+.project-item h3 {
+	margin: 0 0 0.5rem 0;
+}
+
+.project-item p {
+	margin: 0;
+	line-height: 1.6;
+}
+
+.project-item code {
+	background: var(--input-bg);
+	padding: 2px 6px;
+	border-radius: 3px;
+	font-size: 0.9em;
+	color: var(--accent-primary);
+}
 
 .table-wrapper { overflow: auto; }
 .info-table {

@@ -28,10 +28,7 @@
 				<figcaption class="profile-name">-Avinabo</figcaption>
 				<button id="contact-btn" class="contact-toggle">Contact Me</button>
 			</figure>
-
 			<div>
-
-
 				<!-- Icon sizing options:
 				     1) Numeric attributes (preferred): <img src="..." width="30" height="30">
 				     2) Inline style: <img src="..." style="width:30px;height:30px">
@@ -78,48 +75,139 @@
 		</div>
 
 		<main>
-			<section id="personal-info">
-				<h2>About Me</h2>
-				<p><strong>Final-year</strong> Computer Science student at <em style="color: var(--accent-primary);">BRAC University</em>; I build small <strong>web projects</strong> and <strong>labs</strong>. Passionate about <span style="color: var(--accent-secondary);">web development</span> and <span style="color: var(--accent-secondary);">open-source</span> technology.</p>
-			</section>
+			<!-- Tab Navigation -->
+			<div class="tab-navigation">
+				<button class="tab-btn active" data-tab="professional">Professional Info</button>
+				<button class="tab-btn" data-tab="personal">Personal Interests</button>
+			</div>
 
-			<section id="links">
-				<h2>Links</h2>
-				<p><strong>University:</strong> <a href="https://www.bracu.ac.bd" style="font-weight: 600; color: var(--accent-primary);">BRAC University</a>. <strong>Class Discord:</strong> <a href="https://discord.gg/sCuYEMjg" style="font-weight: 600; color: var(--accent-discord);">Discord</a>.</p>
-				<p><em>My projects:</em> <a href="https://github.com/AVXix" style="font-weight: 600; color: var(--text);">GitHub</a></p>
-			</section>
+			<!-- Tab Content -->
+			<div class="tab-content active" id="professional-tab">
+				<section id="personal-info">
+					<h2>About Me</h2>
+					<p>I am a final-year Computer Science student</strong> at <em style="color: var(--accent-primary);"><a href="https://www.bracu.ac.bd" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: none;">BRAC University</a></em>. I aim to be a <strong style="color: var(--accent-secondary);"><a href="https://www.youtube.com/shorts/srNZ9WFsGSY?feature=share" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary); text-decoration: none;">10x Engineer</a></strong> by mastering different fields that are related to each other. I am not willing to be limited to a particular field and want to gain as much knowledge and experience as possible in <span>distributed systems</span>, <span>machine learning</span>, <span>operating systems</span>, and <span>web security</span>.</p>
+					<p><strong>Location:</strong> Dhaka, Bangladesh | <strong>Email:</strong> <a href="mailto:avinabo.tarafder@gmail.com" style="color: var(--accent-primary);">avinabo.tarafder@gmail.com</a> | <strong>Mobile:</strong> +8801633094708</p>
+				</section>
 
-			<section id="skills">
-				<h2>Skills</h2>
-				<ul>
-					<li><strong style="color: var(--accent-react);">MERN Stack</strong> — MongoDB, Express, React, Node.js</li>
-					<li><strong style="color: var(--accent-python);">Python</strong> — Flask, Django</li>
-					<li><strong style="color: var(--accent-primary);">SQL</strong> — MySQL, SQLite</li>
-					<li><strong style="color: var(--accent-secondary);">Version Control</strong> — Git, GitHub</li>
-					<li><em style="color: var(--text);">Linux</em> — Bash, Shell Scripting</li>
-				</ul>
-			</section>
+				<section id="skills">
+					<h2>Skills</h2>
+					<div style="display: grid; gap: 1rem;">
+						<div>
+							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Programming & Scripting</h3>
+							<p><strong style="color: var(--accent-python);">Python</strong> (Networking, Automation, Web & Security) • <strong>C</strong> (OS/Kernel) • <strong style="color: var(--accent-secondary);">Rust</strong> (OS Development) • <strong style="color: var(--accent-react);">JavaScript</strong> (Web) • Bash/Shell • Lua • Assembly • Kotlin (Parallel Programming)</p>
+						</div>
+						<div>
+							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Machine Learning & Data Science</h3>
+							<p>PyTorch • TensorFlow • NumPy • Pandas • Scikit-learn</p>
+						</div>
+						<div>
+							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Cloud & Infrastructure</h3>
+							<p><strong>Docker</strong> • Kubernetes • Azure • SQL Databases • ETL</p>
+						</div>
+						<div>
+							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Linux & Systems</h3>
+							<p>Enterprise (Red Hat) • Offensive (Kali) • Debian/Arch-based Systems • Linux Hardening</p>
+						</div>
+						<div>
+							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Networking & Security</h3>
+							<p>NS-3 • Cisco Packet Tracer • Wireshark • Nmap</p>
+						</div>
+						<div>
+							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Tools & Others</h3>
+							<p>Git • Virtual Machines • Vim/Neovim Configuration</p>
+						</div>
+					</div>
+				</section>
 
-			<section id="education">
-				<h2>Education</h2>
-				<div class="table-wrapper">
-					<!-- <table class="info-table">
-						<thead>
-							<tr><th>Year</th><th>School</th><th>Notes</th></tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td rowspan="2"><strong>2022 – 2026</strong></td>
-								<td><strong style="color: var(--accent-primary);">BRAC University</strong></td>
-								<td><em>BSc in Computer Science</em></td>
-							</tr>
-							<tr>
-								<td colspan="2"><strong>Focus:</strong> <span style="color: var(--accent-secondary);">web development</span> and <span style="color: var(--accent-secondary);">databases</span></td>
-							</tr>
-						</tbody>
-					</table> -->
-				</div>
-			</section>
+				<section id="projects">
+					<h2>Projects & Experience</h2>
+					<div style="display: grid; gap: 1rem;">
+						<div class="project-item">
+							<h3 style="color: var(--accent-secondary); font-size: 1rem; margin-bottom: 0.3rem;">🔬 Thesis: Classical Music Era Classification</h3>
+							<p><em>In Progress</em> — A Hybrid <strong>CNN–Transformer–VAE</strong> Framework for automatic classification of classical music eras using deep learning.</p>
+						</div>
+						<div class="project-item">
+							<h3 style="color: var(--accent-secondary); font-size: 1rem; margin-bottom: 0.3rem;">🔒 Network Anomaly Detection</h3>
+							<p>Using ML and deep learning methods to detect anomalous network traffic from Wireshark packet captures.</p>
+						</div>
+						<div class="project-item">
+							<h3 style="color: var(--accent-secondary); font-size: 1rem; margin-bottom: 0.3rem;">🍕 Food Delivery Time Prediction</h3>
+							<p>Built predictive models using various ML algorithms to estimate delivery times from food delivery datasets.</p>
+						</div>
+						<div class="project-item">
+							<h3 style="color: var(--accent-secondary); font-size: 1rem; margin-bottom: 0.3rem;">🎬 IMDB Clone (Django Stack)</h3>
+							<p>Full-featured platform for movies, series, and anime with user authentication, ratings, comments, and admin reporting system.</p>
+						</div>
+						<div class="project-item">
+							<h3 style="color: var(--accent-secondary); font-size: 1rem; margin-bottom: 0.3rem;">💪 Fitness Tracker (MERN Stack)</h3>
+							<p>Tracks workout details with personalized analysis and suggestions. Features built-in supplement store for direct purchases.</p>
+						</div>
+						<div class="project-item">
+							<h3 style="color: var(--accent-secondary); font-size: 1rem; margin-bottom: 0.3rem;">⚙️ Vim/Neovim Configuration (Lua)</h3>
+							<p>Personalized workflow with custom <code>init.lua</code> scripts featuring optimized settings, mappings, and plugin configurations.</p>
+						</div>
+						<div class="project-item">
+							<h3 style="color: var(--accent-secondary); font-size: 1rem; margin-bottom: 0.3rem;">📚 Bookstore (Assembly Language)</h3>
+							<p>Low-level implementation with search functionality, cart management, and purchase system using custom search algorithms.</p>
+						</div>
+						<div class="project-item">
+							<h3 style="color: var(--accent-secondary); font-size: 1rem; margin-bottom: 0.3rem;">🎮 Shooter Game (OpenGL)</h3>
+							<p>Interactive game with collision detection where players shoot incoming objects.</p>
+						</div>
+					</div>
+					<p style="margin-top: 1.5rem;"><strong>View all projects:</strong> <a href="https://github.com/AVXix" style="font-weight: 600; color: var(--accent-primary);">GitHub</a> | <strong>University:</strong> <a href="https://www.bracu.ac.bd" style="font-weight: 600; color: var(--accent-primary);">BRAC University</a> | <strong>Class Discord:</strong> <a href="https://discord.gg/sCuYEMjg" style="font-weight: 600; color: var(--accent-discord);">Discord</a></p>
+				</section>
+
+				<section id="education">
+					<h2>Education</h2>
+					<div class="education-card" style="background: var(--form-bg); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-primary);">
+						<h3 style="color: var(--accent-primary); margin-top: 0;">BSc in Computer Science</h3>
+						<p style="font-size: 1.1rem; margin: 0.5rem 0;"><strong>BRAC University</strong>, Dhaka, Bangladesh</p>
+						<p style="color: var(--muted); margin: 0.5rem 0;"><strong>Period:</strong> 2022 – August 2026 | <strong>GPA:</strong> <span style="color: var(--accent-secondary); font-weight: 600;">3.46/4.00</span></p>
+						<div style="margin-top: 1rem;">
+							<p style="margin-bottom: 0.5rem;"><strong>Relevant Coursework:</strong></p>
+							<p style="line-height: 1.6;">Data Structures and Algorithms • Distributed Systems and High-Performance Computing • Operating Systems • Computer Architecture • Object Oriented Programming • System Design • Microprocessors • Compiler Design • Computer Networking • Data Communication • Programming for the Internet • Probability and Statistics • Machine Learning and AI</p>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div class="tab-content" id="personal-tab">
+				<section id="hobbies">
+					<h2>Hobbies & Interests</h2>
+					<ul style="line-height: 1.8;">
+						<li>🔧 <strong>Customizing development environments</strong> — Building and fine-tuning Vim/Neovim workflows</li>
+						<li>📚 <strong>Reading tech blogs</strong> — Following advancements in OS development, distributed systems, and ML</li>
+						<li>💻 <strong>Exploring new programming languages</strong> — Currently diving deep into Rust for systems programming</li>
+						<li>🎮 <strong>Gaming & game development</strong> — Creating interactive experiences with OpenGL and game engines</li>
+						<li>🔐 <strong>Network security & penetration testing</strong> — Experimenting with Kali Linux and security tools</li>
+						<li>🐧 <strong>Linux customization</strong> — Exploring different distros and system hardening techniques</li>
+					</ul>
+				</section>
+
+				<section id="sports">
+					<h2>Sports & Fitness</h2>
+					<ul style="line-height: 1.8;">
+						<li>🏏 <strong>Cricket</strong> — Regular player with university team</li>
+						<li>⚽ <strong>Football</strong> — Weekend matches and friendly tournaments</li>
+						<li>🏸 <strong>Badminton</strong> — Recreational sport for staying active</li>
+						<li>🚴 <strong>Cycling</strong> — Morning rides around Dhaka</li>
+						<li>💪 <strong>Gym & Workout Tracking</strong> — Using my own fitness tracker app to monitor progress</li>
+					</ul>
+				</section>
+
+				<section id="extracurricular">
+					<h2>Extracurricular Activities</h2>
+					<ul style="line-height: 1.8;">
+						<li>🎓 <strong>BRAC University CS Community</strong> — Active member and contributor</li>
+						<li>👨‍🏫 <strong>Coding workshops</strong> — Mentoring juniors in Python, web development, and Linux basics</li>
+						<li>🏆 <strong>Hackathons & coding competitions</strong> — Regular participant in university and online events</li>
+						<li>🌐 <strong>Open-source contributions</strong> — Contributing to projects on GitHub</li>
+						<li>🤝 <strong>Class Discord moderator</strong> — Helping organize study groups and technical discussions</li>
+						<li>🔬 <strong>Research & thesis work</strong> — Working on ML/AI projects for classical music classification</li>
+					</ul>
+				</section>
+			</div>
 		</main>
 
 		<footer>
