@@ -92,6 +92,11 @@ header {
 	line-height: 1.2;
 }
 
+.profile-figure .contact-toggle {
+	margin-top: 0.75rem;
+	margin-bottom: 0;
+}
+
 .social-links {
 	display: flex;
 	gap: 0.5rem;
@@ -133,7 +138,7 @@ section { margin-bottom: 1.25rem; }
 .info-table th { font-weight: 600; }
 .info-table tbody tr:nth-child(odd) { background: var(--table-stripe); }
 
-footer { padding: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; text-align: center; }
+footer { padding: 1rem; border-top: 1px solid var(--border); background: var(--form-bg); color: var(--muted); font-size: 0.9rem; text-align: center; }
 
 /* Contact form - hidden by default to keep the page clean */
 .contact-form-section { margin-top: 2rem; }
