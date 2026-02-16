@@ -50,5 +50,49 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (panel) panel.classList.add('active');
 		});
 	});
+
+	// rotating quotes (every 2 seconds)
+	const quoteText = document.getElementById('quote-text');
+	const quoteAuthor = document.getElementById('quote-author');
+	const quoteBox = document.querySelector('.quote-rotator');
+	if (quoteText && quoteAuthor) {
+		const quotes = [
+			{
+				text: 'He who has a why to live can bear almost any how.',
+				author: 'Friedrich Nietzsche'
+			},
+			{
+				text: 'What does not kill me makes me stronger.',
+				author: 'Friedrich Nietzsche'
+			},
+			{
+				text: 'If you want the universe to make sense, start by questioning your assumptions—not everyone else’s.',
+				author: 'Rick (inspired)'
+			},
+			{
+				text: 'Burn the script. Build something real. Then defend it like it matters.',
+				author: 'Johnny Silverhand (inspired)'
+			}
+		];
+
+		let quoteIndex = 0;
+		const swapQuote = () => {
+			const q = quotes[quoteIndex % quotes.length];
+			quoteText.textContent = '“' + q.text + '”';
+			quoteAuthor.textContent = '— ' + q.author;
+			quoteIndex += 1;
+		};
+
+		const renderQuote = () => {
+			if (quoteBox) quoteBox.classList.add('is-fading');
+			window.setTimeout(() => {
+				swapQuote();
+				if (quoteBox) quoteBox.classList.remove('is-fading');
+			}, 250);
+		};
+
+		swapQuote();
+		setInterval(renderQuote, 5000);
+	}
 });
 

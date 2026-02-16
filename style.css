@@ -148,6 +148,33 @@ header {
 
 section { margin-bottom: 1.25rem; }
 
+.quote-rotator {
+	margin: 0.75rem 0 0;
+	padding: 1rem 1.1rem;
+	border-left: 4px solid var(--accent-secondary);
+	background: var(--accent-secondary-soft);
+	border-radius: 8px;
+	opacity: 1;
+	transition: opacity 450ms ease;
+}
+
+.quote-rotator.is-fading {
+	opacity: 0;
+}
+
+.quote-rotator p {
+	margin: 0;
+	font-size: 1.05rem;
+	line-height: 1.6;
+}
+
+.quote-rotator cite {
+	display: block;
+	margin-top: 0.6rem;
+	color: var(--brand-muted);
+	font-style: normal;
+}
+
 .tab-navigation {
 	display: flex;
 	gap: 0.5rem;
