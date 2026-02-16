@@ -4,17 +4,24 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Avinabo Tarafder</title>
+
+		<!-- Google Fonts (headings + body) -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+		
+
+		<!-- for css stuffs to load -->
 		<link rel="stylesheet" href="style.css">
+
+		<!--  scripts  -->
 		<script src="script.js" defer></script>
 		<script src="darkmode.js" defer></script>
 	</head>
 	<body>
 		<header>
 			<button id="theme-switch" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
-				<!-- inline SVGs use `currentColor` so they inherit the theme text color -->
+				<!-- inline SVGs so the icon color follows the theme -->
 				<svg class="theme-icon theme-icon--light" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="28" height="28" fill="currentColor" role="img" aria-hidden="true">
 					<title>Light mode</title>
 					<path d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/>
@@ -25,38 +32,31 @@
 				</svg>
 			</button>
 			
-			<!-- profile image with caption underneath -->
+			<!-- Profile -->
 			<figure class="profile-figure">
 				<img src="images/rick.jpg" alt="Avinabo" class="avatar avatar--large" loading="lazy" style="--avatar-size:300px;" width="160" height="160">
 				<figcaption class="profile-name">-Avinabo</figcaption>
 				<button id="contact-btn" class="contact-toggle">Contact Me</button>
 			</figure>
-			<div>
-				<!-- Icon sizing options:
-				     1) Numeric attributes (preferred): <img src="..." width="30" height="30">
-				     2) Inline style: <img src="..." style="width:30px;height:30px">
-				     3) Utility class: <img src="..." class="icon icon--large">
-				     Change any of these per-icon. CSS utility classes are optional.
-				-->
-				<nav class="social-links">
-                    <a href="https://github.com/AVXix" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-						<img src="images/github.png" alt="GitHub" class="icon" style="width:32px;height:32px">
-					</a>
-					<a href="https://www.linkedin.com/in/avinabo-tarafder-322aa1384/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-						<img src="images/linkdin.png" alt="LinkedIn" class="icon" style="width:25px;height:25px">
-					</a>
-					<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-						<img src="images/facebook.png" alt="Facebook" class="icon" style="width:30px;height:30px">
-					</a>
-					<a href="https://www.discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-						<img src="images/discord.png" alt="Discord" class="icon" style="width:30px;height:30px">
-					</a>
-				</nav>
 
-			</div>
+			<!-- Social links -->
+			<nav class="social-links">
+				<a href="https://github.com/AVXix" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+					<img src="images/github.png" alt="GitHub" class="icon" style="width:32px;height:32px">
+				</a>
+				<a href="https://www.linkedin.com/in/avinabo-tarafder-322aa1384/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+					<img src="images/linkdin.png" alt="LinkedIn" class="icon" style="width:25px;height:25px">
+				</a>
+				<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+					<img src="images/facebook.png" alt="Facebook" class="icon" style="width:30px;height:30px">
+				</a>
+				<a href="https://www.discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+					<img src="images/discord.png" alt="Discord" class="icon" style="width:30px;height:30px">
+				</a>
+			</nav>
 		</header>
 
-		<!-- On-page navigation (anchors) below the profile header/name -->
+		<!-- Anchor navigation -->
 		<nav class="page-nav" aria-label="Jump to sections">
 			<a class="jump-link" data-tab="professional" href="#personal-info">Personal Info</a>
 			<a class="jump-link" data-tab="professional" href="#about-me">About Me</a>
@@ -101,17 +101,17 @@
 			<div class="tab-content active" id="professional-tab">
 				<section id="about-me">
 					<h2>About Me</h2>
-					<p>I am a final-year Computer Science student at <em style="color: var(--accent-primary);"><a href="https://www.bracu.ac.bd" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: none;">BRAC University</a></em>. I want to become a <strong style="color: var(--accent-secondary);"><a href="https://www.youtube.com/shorts/srNZ9WFsGSY?feature=share" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary); text-decoration: none;">10x Engineer</a></strong> by connecting fields that feed into each other. I do not want to be locked into one area, so I keep exploring <span>distributed systems</span>, <span>machine learning</span>, <span>operating systems</span>, and <span>web security</span>.</p>
+					<p>I am a final-year Computer Science student at <em><a href="https://www.bracu.ac.bd" target="_blank" rel="noopener noreferrer" class="profile-link profile-link--primary profile-link--clean">BRAC University</a></em>. I want to become a <strong><a href="https://www.youtube.com/shorts/srNZ9WFsGSY?feature=share" target="_blank" rel="noopener noreferrer" class="profile-link profile-link--highlight profile-link--clean">10x Engineer</a></strong> by connecting fields that feed into each other. I do not want to be locked into one area, so I keep exploring <span>distributed systems</span>, <span>machine learning</span>, <span>operating systems</span>, and <span>web security</span>.</p>
 				</section>
 
 				<section id="personal-info">
 					<h2>Personal Info</h2>
 					<p><strong>Name:</strong> Avinabo Tarafder</p>
 					<p><strong>School and College:</strong> Rajuk College</p>
-					<p><strong>University:</strong> <a href="https://www.bracu.ac.bd" style="font-weight: 600; color: var(--accent-primary);">BRAC University</a></p>
+					<p><strong>University:</strong> BRAC University — <a href="https://www.bracu.ac.bd" class="profile-link profile-link--primary">https://www.bracu.ac.bd/</a></p>
 					<p><strong>Email:</strong> avinabo.tarafder@gmail.com</p>
-					<p><strong>Phone:</strong> **********</p>
-					<p style="margin-top: 1rem;"><strong>GitHub:</strong> <a href="https://github.com/AVXix" style="font-weight: 600; color: var(--accent-primary);">https://github.com/AVXix</a> | <strong>Class Discord:</strong> <a href="https://discord.gg/sCuYEMjg" style="font-weight: 600; color: var(--accent-discord);">Discord</a></p>
+					<p><strong>Phone:</strong> +880__________</p>
+					<p class="personal-links"><strong>GitHub:</strong> <a href="https://github.com/AVXix" class="profile-link profile-link--primary">https://github.com/AVXix</a> | <strong>CSE 391 Discord:</strong> <a href="https://discord.gg/sCuYEMjg" class="profile-link profile-link--primary">https://discord.gg/sCuYEMjg</a></p>
 				</section>
 
 				<section id="technical-skills">
@@ -120,7 +120,7 @@
 						<div>
 							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Programming & Scripting</h3>
 							<p style="line-height: 1.8;">
-								<img src="images/python.png" alt="Python" style="width:20px;height:20px;vertical-align:middle;"> <strong>Python</strong> (Networking, Automation, Web & Security)<br>
+								<img src="images/python.png" alt="Python" style="width:20px;height:20px;vertical-align:middle;"> <strong>Python</strong> (ML, Cybersecurity, Networking, Automation, Web &  Web Security)<br>
 								<img src="images/c.png" alt="C" style="width:20px;height:20px;vertical-align:middle;"> <strong>C</strong> (OS/Kernel)<br>
 								<img src="images/rust.png" alt="Rust" style="width:20px;height:20px;vertical-align:middle;"> <strong>Rust</strong> (OS Development)<br>
 								<img src="images/js.png" alt="JavaScript" style="width:20px;height:20px;vertical-align:middle;"> <strong>JavaScript</strong> (Web)<br>
@@ -239,10 +239,14 @@
 
 				</section>
 			</div>
+
 		</main>
 
+		
 		<footer>
-			<p>&copy; <span id="year"></span> Avinabo Tarafder</p>
+			<p>
+				<a href="https://avxix.github.io/profile/" target="_blank" rel="noopener noreferrer" class="profile-link profile-link--primary">https://avxix.github.io/profile/</a>
+			</p>
 			<p id="meta"></p>
 		</footer>
 	</body>

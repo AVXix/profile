@@ -1,14 +1,22 @@
-/* Theme is just variables + a `.darkmode` class on <body>. */
+/* Dark is the default; the button just flips `.darkmode` on <body>. */
 
 :root {
-	/* Named tokens (used by the stylesheet) */
 	--font-body: "Source Sans 3", "Noto Sans", "Segoe UI", sans-serif;
 	--font-heading: "Space Grotesk", "Noto Sans", "Segoe UI", sans-serif;
-	--brand-bg: #dadada;
-	--brand-ink: #111827;
+
+	/* little palette names I can remember */
+	--dhaka-day: #dadada;
+	--dhaka-night: #111827;
+	--ink-day: #111827;
+	--ink-night: #e5e7eb;
+	--brac-link-blue: #0066cc;
+	--thesis-violet: #7c3aed;
+
+	--brand-bg: var(--dhaka-day);
+	--brand-ink: var(--ink-day);
 	--brand-muted: #6b7280;
-	--brand-link: #0066cc;
-	--brand-highlight: #7c3aed;
+	--brand-link: var(--brac-link-blue);
+	--brand-highlight: var(--thesis-violet);
 
 	--ui-border: #e5e7eb;
 	--ui-row-alt: #f9fafb;
@@ -24,7 +32,7 @@
 	--fx-fab-hover: rgba(0, 0, 0, 0.05);
 	--fx-link-hover: #0052a3;
 
-	/* Compatibility aliases (used by HTML inline styles + older rules) */
+	/* old names kept so the HTML inline styles still work */
 	--bg: var(--brand-bg);
 	--text: var(--brand-ink);
 	--muted: var(--brand-muted);
@@ -43,15 +51,15 @@
 	--theme-switch-hover: var(--fx-fab-hover);
 	--accent-primary-hover: var(--fx-link-hover);
 
-	/* Small one-offs used in the content */
+	/* small one-offs used in the content */
 	--accent-discord: #5865f2;
 	--accent-python: #3776ab;
 	--accent-react: #61dafb;
 }
 
 .darkmode {
-	--brand-bg: #111827;
-	--brand-ink: #e5e7eb;
+	--brand-bg: var(--dhaka-night);
+	--brand-ink: var(--ink-night);
 	--brand-muted: #9ca3af;
 	--brand-link: #4da6ff;
 	--brand-highlight: #a78bfa;
@@ -62,7 +70,6 @@
 	--ui-field: #2d3748;
 	--ui-field-border: #4b5563;
 
-	/* keep these distinct in dark mode */
 	--accent-discord: #7289da;
 	--accent-python: #5d9ed7;
 	--accent-react: #61dafb;
@@ -200,6 +207,14 @@ header {
 }
 
 section { margin-bottom: 1.25rem; }
+
+.personal-links { margin-top: 1rem; }
+.profile-link { font-weight: 600; }
+.profile-link--clean { text-decoration: none; }
+.profile-link--primary { color: var(--accent-primary); }
+.profile-link--highlight { color: var(--accent-secondary); }
+.profile-link--github { color: var(--accent-primary); }
+.profile-link--discord { color: var(--accent-discord); }
 
 .quote-rotator {
 	margin: 0.75rem 0 0;
