@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const metaEl = document.getElementById('meta');
 	if (metaEl) {
+		// Format document.lastModified (if valid)
 		const lastModRaw = document.lastModified || '';
 		const lastModDate = lastModRaw ? new Date(lastModRaw) : null;
 		const formattedLastMod = (lastModDate && !Number.isNaN(lastModDate.getTime()))
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const tabButtons = Array.from(document.querySelectorAll('.tab-btn'));
 	const tabPanels = Array.from(document.querySelectorAll('.tab-content'));
 
+	// Tab switch helper
 	function showPortfolioTab(tabKey) {
 		if (!tabKey) return;
 
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		btn.addEventListener('click', () => showPortfolioTab(btn.getAttribute('data-tab')));
 	}
 
+	// Jump-link: switch tab first, then scroll
 	const jumpAnchors = document.querySelectorAll('a.jump-link[href^="#"]');
 	jumpAnchors.forEach((a) => {
 		a.addEventListener('click', (e) => {
@@ -62,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			e.preventDefault();
 			showPortfolioTab(a.getAttribute('data-tab'));
 
+			// Next tick: panel exists + layout ready
 			window.setTimeout(() => {
 				const target = document.getElementById(targetId);
 				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -79,10 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		const quotes = [
 			{ text: 'He who has a why to live can bear almost any how.', author: 'Friedrich Nietzsche' },
 			{ text: 'What does not kill me makes me stronger.', author: 'Friedrich Nietzsche' },
-			{ text: 'Build the thing, read the logs, then optimize the part that hurts.', author: 'Avinabo (note to self)' },
-			{ text: 'Distributed systems: the fun starts where the assumptions end.', author: 'Avinabo (note to self)' },
 			{ text: 'If you want the universe to make sense, start by questioning your assumptions—not everyone else’s.', author: 'Rick (inspired)' },
-			{ text: 'Burn the script. Build something real. Then defend it like it matters.', author: 'Johnny Silverhand (inspired)' }
+			{ text: 'Burn the script. Build something real. Then defend it like it matters.', author: 'Johnny Silverhand (inspired)' },
+			{ text: 'Swap meat for chrome, live a BD fantasy, whatever, but at the end of it all, its the code you live by that defines who you are.', author: 'Johnny Silverhand (inspired)' }
 		];
 
 		let i = 0;
@@ -93,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			i += 1;
 		}
 
+		// Fade animation hook (CSS class)
 		function fadeSwap() {
 			if (quoteBox) quoteBox.classList.add('is-fading');
 			window.setTimeout(() => {
