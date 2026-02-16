@@ -19,7 +19,7 @@ const disableDarkmode = () => {
   }
 };
 
-// dark mode is default; light mode requires explicit opt-out
+// dark mode is default;
 if (darkmode === "inactive") {
   disableDarkmode();
 } else {
