@@ -1,10 +1,12 @@
 /* Dark is the default; the button just flips `.darkmode` on <body>. */
 
+/* Main color palette and variables - basically the brain of the whole design */
 :root {
+	/* Font choices - went with something clean and modern */
 	--font-body: "Source Sans 3", "Noto Sans", "Segoe UI", sans-serif;
 	--font-heading: "Space Grotesk", "Noto Sans", "Segoe UI", sans-serif;
 
-	/* little palette names I can remember */
+	/* little palette names I can remember - sounds better than color1, color2 lol */
 	--dhaka-day: #dadada;
 	--dhaka-night: #111827;
 	--ink-day: #111827;
@@ -12,18 +14,21 @@
 	--brac-link-blue: #0066cc;
 	--thesis-violet: #7c3aed;
 
+	/* Main brand colors - these swap when dark mode kicks in */
 	--brand-bg: var(--dhaka-day);
 	--brand-ink: var(--ink-day);
 	--brand-muted: #6b7280;
 	--brand-link: var(--brac-link-blue);
 	--brand-highlight: var(--thesis-violet);
 
+	/* UI elements - borders, surfaces, all that jazz */
 	--ui-border: #e5e7eb;
 	--ui-row-alt: #f9fafb;
 	--ui-surface: #f2f2f2;
 	--ui-field: #e8e8e8;
 	--ui-field-border: #ccc;
 
+	/* Effects and subtle touches - shadows, hovers, etc */
 	--fx-shadow-soft: rgba(0, 0, 0, 0.1);
 	--fx-ring: 0 0 0 3px rgba(0, 102, 204, 0.15);
 	--fx-link-wash: rgba(0, 102, 204, 0.05);
@@ -32,7 +37,13 @@
 	--fx-fab-hover: rgba(0, 0, 0, 0.05);
 	--fx-link-hover: #0052a3;
 
-	/* old names kept so the HTML inline styles still work */
+	/* Button colors */
+	--btn-cancel: #999;
+	--btn-cancel-hover: #777;
+	--btn-cancel-dark: #555;
+	--btn-cancel-dark-hover: #666;
+
+	/* old names kept so the HTML inline styles still work - too lazy to refactor everything */
 	--bg: var(--brand-bg);
 	--text: var(--brand-ink);
 	--muted: var(--brand-muted);
@@ -51,12 +62,13 @@
 	--theme-switch-hover: var(--fx-fab-hover);
 	--accent-primary-hover: var(--fx-link-hover);
 
-	/* small one-offs used in the content */
+	/* small one-offs used in the content - for tech badges and stuff */
 	--accent-discord: #5865f2;
 	--accent-python: #3776ab;
 	--accent-react: #61dafb;
 }
 
+/* Dark mode overrides - flips everything to night mode */
 .darkmode {
 	--brand-bg: var(--dhaka-night);
 	--brand-ink: var(--ink-night);
@@ -70,12 +82,18 @@
 	--ui-field: #2d3748;
 	--ui-field-border: #4b5563;
 
+	/* Tech colors also get adjusted for dark mode */
 	--accent-discord: #7289da;
 	--accent-python: #5d9ed7;
 	--accent-react: #61dafb;
 }
 
-* { box-sizing: border-box; }
+/* Basic resets and defaults */
+* {
+	box-sizing: border-box;
+}
+
+/* Main page setup - full height, nice smooth transitions */
 html, body {
 	min-height: 100vh;
 	margin: 0;
@@ -83,27 +101,31 @@ html, body {
 	font-size: 17px;
 	background: var(--brand-bg);
 	color: var(--brand-ink);
-	transition: background-color 0.3s, color 0.3s;
+	transition: background-color 0.3s, color 0.3s; /* smooth theme switching */
 }
 
+/* Headings get the fancy font */
 h1, h2, h3,
 .profile-name,
 .tab-btn {
 	font-family: var(--font-heading);
-	letter-spacing: 0.2px;
+	letter-spacing: 0.2px; /* just a tiny bit of spacing makes it cleaner */
 }
 
+/* Section headings pop with the purple accent */
 #about-me h2,
 #personal-info h2,
 main section h2 {
 	color: var(--accent-secondary);
 }
 
+/* Flexbox layout to keep footer at bottom */
 body {
 	display: flex;
 	flex-direction: column;
 }
 
+/* Main content area - centered and constrained */
 main {
 	flex: 1;
 	padding: 1rem;
@@ -112,6 +134,7 @@ main {
 	width: 100%;
 }
 
+/* Top navigation with jump links */
 .page-nav {
 	display: flex;
 	flex-wrap: wrap;
@@ -124,6 +147,7 @@ main {
 	border-bottom: 1px solid var(--ui-border);
 }
 
+/* Individual jump link pills */
 .page-nav .jump-link {
 	display: inline-flex;
 	align-items: center;
@@ -146,31 +170,41 @@ main {
 	outline: none;
 	box-shadow: var(--focus-ring);
 }
+
+/* Header section with profile stuff */
 header {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
 	padding: 1rem;
 }
+
+/* Profile picture and name container */
 .profile-figure {
 	margin: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
+
+/* Avatar with that nice round border */
 .profile-figure .avatar {
-	border-radius: 9999px;
+	border-radius: 9999px; /* makes it perfectly circular */
 	object-fit: cover;
 	display: block;
 	border: 3px solid var(--accent-secondary);
 }
 
+/* Avatar sizes - using CSS variables for easy sizing */
 .avatar {
 	width: var(--avatar-size, 72px);
 	height: var(--avatar-size, 72px);
 }
-.avatar--large { --avatar-size: 160px; }
+.avatar--large {
+	--avatar-size: 160px; /* bigger version for the header */
+}
 
+/* Name styling */
 .profile-name {
 	margin-top: 0.5rem;
 	font-family: var(--font-heading);
@@ -180,16 +214,20 @@ header {
 	line-height: 1.2;
 }
 
+/* Contact button placement */
 .profile-figure .contact-toggle {
 	margin-top: 0.75rem;
 	margin-bottom: 0;
 }
 
+/* Social media icons row */
 .social-links {
 	display: flex;
 	gap: 0.5rem;
 	align-items: center;
 }
+
+/* Icon styling with fun hover animation */
 .icon {
 	display: block;
 	width: auto;
@@ -197,6 +235,7 @@ header {
 	transition: transform 0.2s;
 }
 
+/* Little bounce on hover - makes it more playful */
 .icon:hover {
 	animation: bounce 0.6s ease;
 }
@@ -206,36 +245,64 @@ header {
 	50% { transform: translateY(-8px); }
 }
 
-section { margin-bottom: 1.25rem; }
+/* Sections get some breathing room */
+section {
+	margin-bottom: 1.25rem;
+}
 
-.personal-links { margin-top: 1rem; }
-.profile-link { font-weight: 600; }
-.profile-link--clean { text-decoration: none; }
-.profile-link--primary { color: var(--accent-primary); }
-.profile-link--highlight { color: var(--accent-secondary); }
-.profile-link--github { color: var(--accent-primary); }
-.profile-link--discord { color: var(--accent-discord); }
+/* Various link styles throughout the page */
+.personal-links {
+	margin-top: 1rem;
+}
 
+.profile-link {
+	font-weight: 600;
+}
+
+.profile-link--clean {
+	text-decoration: none;
+}
+
+.profile-link--primary {
+	color: var(--accent-primary);
+}
+
+.profile-link--highlight {
+	color: var(--accent-secondary);
+}
+
+.profile-link--github {
+	color: var(--accent-primary);
+}
+
+.profile-link--discord {
+	color: var(--accent-discord);
+}
+
+/* Rotating quote box - fades in and out with the quote switcher */
 .quote-rotator {
 	margin: 0.75rem 0 0;
 	padding: 1rem 1.1rem;
-	border-left: 4px solid #7c3aed;
-	background: rgba(124, 58, 237, 0.12);
+	border-left: 4px solid var(--accent-secondary);
+	background: var(--accent-secondary-soft);
 	border-radius: 8px;
 	opacity: 1;
 	transition: opacity 450ms ease;
 }
 
+/* Fade effect when quotes change */
 .quote-rotator.is-fading {
 	opacity: 0;
 }
 
+/* Quote text styling */
 .quote-rotator p {
 	margin: 0;
 	font-size: 1.05rem;
 	line-height: 1.6;
 }
 
+/* Attribution for the quote */
 .quote-rotator cite {
 	display: block;
 	margin-top: 0.6rem;
@@ -243,6 +310,7 @@ section { margin-bottom: 1.25rem; }
 	font-style: normal;
 }
 
+/* Tab system for switching between sections */
 .tab-navigation {
 	display: flex;
 	gap: 0.5rem;
@@ -251,6 +319,7 @@ section { margin-bottom: 1.25rem; }
 	padding-bottom: 0;
 }
 
+/* Individual tab buttons */
 .tab-btn {
 	background: transparent;
 	border: none;
@@ -264,25 +333,30 @@ section { margin-bottom: 1.25rem; }
 	border-bottom: 3px solid transparent;
 }
 
+/* Hover state for tabs */
 .tab-btn:hover {
 	color: var(--brand-ink);
 	background: var(--accent-primary-soft);
 }
 
+/* Active tab gets the purple treatment */
 .tab-btn.active {
 	color: var(--accent-secondary);
 	border-bottom-color: var(--accent-secondary);
 }
 
+/* Tab content panels */
 .tab-content {
 	display: none;
 	animation: fadeIn 0.3s ease;
 }
 
+/* Show the active tab */
 .tab-content.active {
 	display: block;
 }
 
+/* Smooth fade-in animation when switching tabs */
 @keyframes fadeIn {
 	from {
 		opacity: 0;
@@ -294,6 +368,7 @@ section { margin-bottom: 1.25rem; }
 	}
 }
 
+/* Project cards with that side accent */
 .project-item {
 	padding: 1rem;
 	border-left: 3px solid var(--accent-secondary);
@@ -302,11 +377,13 @@ section { margin-bottom: 1.25rem; }
 	transition: all 0.3s ease;
 }
 
+/* Slide effect on hover - subtle but nice */
 .project-item:hover {
 	background: var(--accent-secondary-soft-hover);
 	transform: translateX(5px);
 }
 
+/* Project titles and text */
 .project-item h3 {
 	margin: 0 0 0.5rem 0;
 }
@@ -316,6 +393,7 @@ section { margin-bottom: 1.25rem; }
 	line-height: 1.6;
 }
 
+/* Inline code in projects - for tech tags */
 .project-item code {
 	background: var(--ui-field);
 	padding: 2px 6px;
@@ -324,7 +402,11 @@ section { margin-bottom: 1.25rem; }
 	color: var(--accent-primary);
 }
 
-.table-wrapper { overflow: auto; }
+/* Tables - made responsive with wrapper */
+.table-wrapper {
+	overflow: auto;
+}
+
 .info-table {
 	width: 100%;
 	border-collapse: collapse;
@@ -336,12 +418,29 @@ section { margin-bottom: 1.25rem; }
 	padding: 0.75rem 0.5rem;
 	border-bottom: 1px solid var(--ui-border);
 }
-.info-table th { font-weight: 600; }
-.info-table tbody tr:nth-child(odd) { background: var(--ui-row-alt); }
 
-footer { padding: 1rem; border-top: 1px solid var(--ui-border); background: var(--ui-surface); color: var(--brand-muted); font-size: 0.9rem; text-align: center; }
+.info-table th {
+	font-weight: 600;
+}
 
-.contact-form-section { margin-top: 2rem; }
+.info-table tbody tr:nth-child(odd) {
+	background: var(--ui-row-alt); /* zebra striping */
+}
+
+/* Footer at the bottom */
+footer {
+	padding: 1rem;
+	border-top: 1px solid var(--ui-border);
+	background: var(--ui-surface);
+	color: var(--brand-muted);
+	font-size: 0.9rem;
+	text-align: center;
+}
+
+/* Contact form styles */
+.contact-form-section {
+	margin-top: 2rem;
+}
 
 .contact-toggle {
 	background-color: var(--accent-primary);
@@ -356,13 +455,18 @@ footer { padding: 1rem; border-top: 1px solid var(--ui-border); background: var(
 	margin-bottom: 1rem;
 }
 
+/* Button lifts up a bit on hover */
 .contact-toggle:hover {
 	background-color: var(--accent-primary-hover);
 	transform: translateY(-2px);
 }
 
-.contact-toggle:active { transform: translateY(0); }
+/* Pressed state */
+.contact-toggle:active {
+	transform: translateY(0);
+}
 
+/* The actual contact form container */
 .contact-form {
 	border-radius: 8px;
 	background-color: var(--ui-surface);
@@ -372,11 +476,15 @@ footer { padding: 1rem; border-top: 1px solid var(--ui-border); background: var(
 	box-shadow: 0 2px 4px var(--shadow-soft);
 }
 
+/* Utility class for hiding stuff */
 .contact-form.hidden,
-.hidden { display: none !important; }
+.hidden {
+	display: none !important;
+}
 
-input[type=text],
-input[type=email],
+/* Form inputs - all styled consistently */
+input[type="text"],
+input[type="email"],
 select,
 textarea {
 	width: 100%;
@@ -391,10 +499,15 @@ textarea {
 	font-size: 1rem;
 }
 
-textarea { resize: vertical; min-height: 120px; }
+/* Textarea specific - can only resize vertically */
+textarea {
+	resize: vertical;
+	min-height: 120px;
+}
 
-input[type=text]:focus,
-input[type=email]:focus,
+/* Focus states - blue ring for accessibility */
+input[type="text"]:focus,
+input[type="email"]:focus,
 select:focus,
 textarea:focus {
 	outline: none;
@@ -402,7 +515,8 @@ textarea:focus {
 	box-shadow: var(--focus-ring);
 }
 
-input[type=submit],
+/* Submit button styling */
+input[type="submit"],
 .submit-btn {
 	background-color: var(--accent-primary);
 	color: white;
@@ -416,25 +530,29 @@ input[type=submit],
 	width: 48%;
 }
 
-input[type=submit]:hover,
+/* Button hover effects */
+input[type="submit"]:hover,
 .submit-btn:hover {
 	background-color: var(--accent-primary-hover);
 }
 
-input[type=submit]:active,
+/* Click feedback */
+input[type="submit"]:active,
 .submit-btn:active {
 	transform: scale(0.98);
 }
 
+/* Form button container - side by side */
 .form-buttons {
 	display: flex;
 	gap: 1rem;
 	margin-top: 1.5rem;
 }
 
+/* Cancel button - less prominent than submit */
 .cancel-btn {
 	width: 48%;
-	background-color: #999;
+	background-color: var(--btn-cancel);
 	color: white;
 	padding: 12px 24px;
 	border: none;
@@ -444,16 +562,20 @@ input[type=submit]:active,
 	transition: all 200ms ease;
 }
 
-.cancel-btn:hover { background-color: #777; }
+.cancel-btn:hover {
+	background-color: var(--btn-cancel-hover);
+}
 
+/* Dark mode tweaks for cancel button */
 .darkmode .cancel-btn {
-	background-color: #555;
+	background-color: var(--btn-cancel-dark);
 }
 
 .darkmode .cancel-btn:hover {
-	background-color: #666;
+	background-color: var(--btn-cancel-dark-hover);
 }
 
+/* Generic container for content sections */
 .container {
 	border-radius: 8px;
 	background-color: var(--ui-surface);
@@ -461,25 +583,38 @@ input[type=submit]:active,
 	margin-bottom: 1rem;
 }
 
+/* Mobile responsiveness - tablet and below */
 @media (max-width: 768px) {
 	header {
 		flex-direction: column;
 		align-items: flex-start;
 	}
-	.social-links { margin-top: 0.75rem; }
-	
+	.social-links {
+		margin-top: 0.75rem;
+	}
+
 	.form-buttons {
 		flex-direction: column;
 	}
+
 	.submit-btn,
-	.cancel-btn { width: 100%; }
+	.cancel-btn {
+		width: 100%;
+	}
 }
 
+/* Extra small screens */
 @media (max-width: 520px) {
-	main { padding: 0.75rem; }
-	.contact-form { padding: 1.5rem; }
+	main {
+		padding: 0.75rem;
+	}
+
+	.contact-form {
+		padding: 1.5rem;
+	}
 }
 
+/* The dark mode toggle button - floating in the corner */
 #theme-switch {
 	height: 50px;
 	width: 50px;
@@ -497,21 +632,37 @@ input[type=submit]:active,
 	cursor: pointer;
 	color: var(--brand-ink);
 	transition: all 200ms ease;
-	z-index: 1000;
+	z-index: 1000; /* stays on top of everything */
 }
 
+/* Hover state for theme switcher */
 #theme-switch:hover {
 	background-color: var(--theme-switch-hover);
 	transform: scale(1.1);
 }
 
+/* Focus ring for keyboard navigation */
 #theme-switch:focus {
 	outline: 2px solid var(--accent-primary);
 	outline-offset: 3px;
 }
 
-#theme-switch .theme-icon { display: block; width: 24px; height: 24px; }
-#theme-switch .theme-icon--dark { display: none; }
+/* Icon sizing */
+#theme-switch .theme-icon {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
 
-.darkmode #theme-switch .theme-icon--light { display: none; }
-.darkmode #theme-switch .theme-icon--dark { display: block; }
+#theme-switch .theme-icon--dark {
+	display: none;
+}
+
+/* Icon swapping based on theme - shows sun in dark mode, moon in light mode */
+.darkmode #theme-switch .theme-icon--light {
+	display: none;
+}
+
+.darkmode #theme-switch .theme-icon--dark {
+	display: block;
+}
