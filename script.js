@@ -38,16 +38,40 @@ document.addEventListener('DOMContentLoaded', function() {
 	const tabs = document.querySelectorAll('.tab-btn');
 	const panels = document.querySelectorAll('.tab-content');
 
+	const activateTab = (which) => {
+		if (!which) return;
+		tabs.forEach(t => t.classList.remove('active'));
+		panels.forEach(p => p.classList.remove('active'));
+		const tabBtn = document.querySelector(`.tab-btn[data-tab="${which}"]`);
+		if (tabBtn) tabBtn.classList.add('active');
+		const panel = document.getElementById(which + '-tab');
+		if (panel) panel.classList.add('active');
+	};
+
 	tabs.forEach(tab => {
 		tab.addEventListener('click', function() {
 			const which = this.getAttribute('data-tab');
-			
-			tabs.forEach(t => t.classList.remove('active'));
-			panels.forEach(p => p.classList.remove('active'));
-			
-			this.classList.add('active');
-			const panel = document.getElementById(which + '-tab');
-			if (panel) panel.classList.add('active');
+			activateTab(which);
+		});
+	});
+
+	// in-page anchor jump links (works with tabs)
+	const jumpLinks = document.querySelectorAll('a.jump-link[href^="#"]');
+	jumpLinks.forEach(link => {
+		link.addEventListener('click', (e) => {
+			const which = link.getAttribute('data-tab');
+			const href = link.getAttribute('href') || '';
+			const id = href.startsWith('#') ? href.slice(1) : '';
+			if (!id) return;
+
+			e.preventDefault();
+			activateTab(which);
+			window.setTimeout(() => {
+				const target = document.getElementById(id);
+				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				// keep URL hash in sync without forcing native jump
+				history.pushState(null, '', '#' + id);
+			}, 0);
 		});
 	});
 

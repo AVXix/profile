@@ -4,6 +4,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Avinabo Tarafder</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="style.css">
 		<script src="script.js" defer></script>
 		<script src="darkmode.js" defer></script>
@@ -53,6 +56,19 @@
 			</div>
 		</header>
 
+		<!-- On-page navigation (anchors) below the profile header/name -->
+		<nav class="page-nav" aria-label="Jump to sections">
+			<a class="jump-link" data-tab="professional" href="#personal-info">Personal Info</a>
+			<a class="jump-link" data-tab="professional" href="#about-me">About Me</a>
+			<a class="jump-link" data-tab="professional" href="#technical-skills">Technical Skills</a>
+			<a class="jump-link" data-tab="professional" href="#projects">Projects & Experience</a>
+			<a class="jump-link" data-tab="professional" href="#education">Education</a>
+			<a class="jump-link" data-tab="personal" href="#favorite-quote">Favorite Quote</a>
+			<a class="jump-link" data-tab="personal" href="#hobbies">Hobbies</a>
+			<a class="jump-link" data-tab="personal" href="#sports">Sports</a>
+			<a class="jump-link" data-tab="personal" href="#extracurricular">Extracurricular</a>
+		</nav>
+
 		<div id="contact-form" class="contact-form hidden">
 			<form id="contact-form-element" action="https://formspree.io/f/xjgewwgw" method="POST">
 				<label for="name">Name</label>
@@ -83,12 +99,24 @@
 
 			<!-- Tab Content -->
 			<div class="tab-content active" id="professional-tab">
-				<section id="personal-info">
+				<section id="about-me">
 					<h2>About Me</h2>
-				<p>I am a final-year Computer Science student at <em style="color: var(--accent-primary);"><a href="https://www.bracu.ac.bd" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: none;">BRAC University</a></em>. I aim to be a <strong style="color: var(--accent-secondary);"><a href="https://www.youtube.com/shorts/srNZ9WFsGSY?feature=share" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary); text-decoration: none;">10x Engineer</a></strong> by mastering different fields that are related to each other. I am not willing to be limited to a particular field and want to gain as much knowledge and experience as possible in <span>distributed systems</span>, <span>machine learning</span>, <span>operating systems</span>, and <span>web security</span>.</p>
-				<p><strong>Location:</strong> Dhaka, Bangladesh | <strong>Email:</strong> <a href="mailto:avinabo.tarafder@gmail.com" style="color: var(--accent-primary);">avinabo.tarafder@gmail.com</a></p>
-				<section id="skills">
-					<h2>Skills</h2>
+					<p>I am a final-year Computer Science student at <em style="color: var(--accent-primary);"><a href="https://www.bracu.ac.bd" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: none;">BRAC University</a></em>. I want to become a <strong style="color: var(--accent-secondary);"><a href="https://www.youtube.com/shorts/srNZ9WFsGSY?feature=share" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary); text-decoration: none;">10x Engineer</a></strong> by connecting fields that feed into each other. I do not want to be locked into one area, so I keep exploring <span>distributed systems</span>, <span>machine learning</span>, <span>operating systems</span>, and <span>web security</span>.</p>
+				</section>
+
+				<section id="personal-info">
+					<h2>Personal Info</h2>
+					<p><strong>Name:</strong> Avinabo Tarafder</p>
+					<p><strong>School:</strong> Rajuk College</p>
+					<p><strong>College:</strong> Rajuk College</p>
+					<p><strong>University:</strong> <a href="https://www.bracu.ac.bd" style="font-weight: 600; color: var(--accent-primary);">BRAC University</a></p>
+					<p><strong>Email:</strong> avinabo.tarafder.@gmail.com</p>
+					<p><strong>Phone:</strong> **********</p>
+					<p style="margin-top: 1rem;"><strong>GitHub:</strong> <a href="https://github.com/AVXix" style="font-weight: 600; color: var(--accent-primary);">https://github.com/AVXix</a> | <strong>Class Discord:</strong> <a href="https://discord.gg/sCuYEMjg" style="font-weight: 600; color: var(--accent-discord);">Discord</a></p>
+				</section>
+
+				<section id="technical-skills">
+					<h2>Technical Skills</h2>
 					<div style="display: grid; gap: 1rem;">
 						<div>
 							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Programming & Scripting</h3>
@@ -109,7 +137,7 @@
 						</div>
 						<div>
 							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Cloud & Infrastructure</h3>
-							<p><strong>Docker</strong> • Kubernetes • Azure • SQL Databases • ETL</p>
+							<p>Docker• Kubernetes • Azure • SQL Databases • ETL</p>
 						</div>
 						<div>
 							<h3 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 0.5rem;">Linux & Systems</h3>
@@ -162,7 +190,6 @@
 							<p>Interactive game with collision detection where players shoot incoming objects. <a href="https://github.com/AVXix/computer-graphics" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">View on GitHub</a></p>
 						</div>
 					</div>
-					<p style="margin-top: 1.5rem;"><strong>View all projects:</strong> <a href="https://github.com/AVXix" style="font-weight: 600; color: var(--accent-primary);">GitHub</a> | <strong>University:</strong> <a href="https://www.bracu.ac.bd" style="font-weight: 600; color: var(--accent-primary);">BRAC University</a> | <strong>Class Discord:</strong> <a href="https://discord.gg/sCuYEMjg" style="font-weight: 600; color: var(--accent-discord);">Discord</a></p>
 				</section>
 
 				<section id="education">
@@ -170,7 +197,7 @@
 					<div>
 						<h3 style="color: var(--accent-primary); margin-top: 0;">BSc in Computer Science</h3>
 						<p style="font-size: 1.1rem; margin: 0.5rem 0;"><strong>BRAC University</strong>, Dhaka, Bangladesh</p>
-						<p style="color: var(--muted); margin: 0.5rem 0;"><strong>Period:</strong> 2022 – August 2026 | <strong>GPA:</strong> <span style="color: var(--accent-secondary); font-weight: 600;">3.46/4.00</span></p>
+						<p style="color: var(--muted); margin: 0.5rem 0;"><strong>Period:</strong> 2022 – August 2026 | <strong>GPA:</strong> <span style="font-weight: 600;">3.46/4.00</span></p>
 						<div style="margin-top: 1rem;">
 							<p style="margin-bottom: 0.5rem;"><strong>Relevant Coursework:</strong></p>
 							<p style="line-height: 1.6;">Data Structures and Algorithms • Distributed Systems and High-Performance Computing • Operating Systems • Computer Architecture • Object Oriented Programming • System Design • Microprocessors • Compiler Design • Computer Networking • Data Communication • Programming for the Internet • Probability and Statistics • Machine Learning and AI</p>
@@ -191,25 +218,25 @@
 				<section id="hobbies">
 					<h2>Hobbies & Interests</h2>
 					<ul style="line-height: 1.8;">
-						<li>🔧 ⚙️ <strong>Customizing development environments</strong> — Building and fine-tuning Vim/Neovim workflows. I also like ricing <img src="images/Linux.png" alt="Linux" style="width:26px;height:26px;vertical-align:middle;margin-right:4px;"> Linux environments. Big fan of the Linux ricing community.</li>
-						<li>📚 <strong>Reading and writing</strong> — I’m not a prolific reader, but I’m interested in some branches of philosophy. A few books I’ve enjoyed include <em>Thus Spoke Zarathustra</em>, <em>Beyond Good and Evil</em>, and <em>On the Genealogy of Morals</em> by Friedrich Nietzsche, as well as <em>Notes from Underground</em> and <em>Crime and Punishment</em> by Fyodor Dostoevsky.<br>I don’t usually like self-improvement books because many of them feel repetitive and superficial, but I think <em>Atomic Habits</em> is genuinely great—practical, well-structured, and easy to apply.</li>
-						<li>💻 <strong>Expanding Knowledge in tech</strong> — Currently diving deep into Rust for building OS. It is my plan to build an OS from scratch. </li>
-						<li>🎮 <strong>Gaming & game development</strong> — Creating interactive experiences with OpenGL and game engines. I also build a game with unrealengine in which the player could mover around in a 3d space and collect points.</li>
+						<li>🔧 ⚙️ <strong>Customizing development environments</strong> — I spend a lot of time fine-tuning Vim/Neovim workflows. I also like ricing <img src="images/Linux.png" alt="Linux" style="width:26px;height:26px;vertical-align:middle;margin-right:4px;"> Linux setups and follow the ricing community closely.</li>
+						<li>📚 <strong>Reading and writing</strong> — I am not a prolific reader, but I enjoy philosophy. Some books I have liked are <em>Thus Spoke Zarathustra</em>, <em>Beyond Good and Evil</em>, and <em>On the Genealogy of Morals</em> by Friedrich Nietzsche, plus <em>Notes from Underground</em> and <em>Crime and Punishment</em> by Fyodor Dostoevsky.<br>I usually avoid most self-improvement books, but <em>Atomic Habits</em> felt practical and easy to apply.</li>
+						<li>💻 <strong>Expanding knowledge in tech</strong> — I am diving deep into Rust to build an OS. The long-term plan is to build one from scratch.</li>
+						<li>🎮 <strong>Gaming & game development</strong> — I build interactive experiences with OpenGL and game engines. I also made a small Unreal Engine game where the player moves around a 3D space and collects points.</li>
 					</ul>
 				</section>
 
 				<section id="sports">
 					<h2>Sports & Fitness</h2>
 					<ul style="line-height: 1.8;">
-						<li>I spent my younger years living and breathing ⚽ <strong>Football.</strong> I played for <a href="https://www.facebook.com/ufc1986/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: none;">Uttara Friends Club</a>. I couldn’t continue on that path because of an injury and because my parents wanted me to focus on my studies and career. After that, I kept playing football, but not as seriously as before. When I joined university, I suffered a serious ACL injury and needed surgery, which made me quit football completely.</li>
-			
-						<li>After football was completely removed from my life, I discovered a new interest in 💪 <strong>Gym & Workout</strong>. I started researching fitness-related topics, and one of the main motivations behind my fitness tracker app is that interest.</li>
+						<li>I spent my younger years living and breathing ⚽ <strong>Football.</strong> I played for <a href="https://www.facebook.com/ufc1986/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: none;">Uttara Friends Club</a>. I could not continue because of an injury and because my parents wanted me to focus on studies and career. I kept playing casually until a serious ACL injury in university required surgery, and I quit football after that.</li>
+		
+						<li>After football was out of my life, I found a new interest in 💪 <strong>Gym & Workout</strong>. I started digging into fitness topics, and that interest helped spark the fitness tracker app.</li>
 					</ul>
 				</section>
 
 				<section id="extracurricular">
 					<h2>Extracurricular Activities</h2>
-					<p>I don’t really have much interest in extracurricular activities; I prefer spending time by myself and doing things I like. That said, I was a member of the football club in school, high school, and university. I was also a member of the computer club, but I quit because I’ve never been a very sociable person.</p>
+					<p>I do not spend much time on extracurricular activities; I prefer working on things I enjoy on my own. That said, I was part of the football club in school, high school, and university. I also joined the computer club for a while, but I left because I am not very social.</p>
 
 				</section>
 			</div>
