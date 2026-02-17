@@ -15,3 +15,8 @@ This is why the index.html now contains the actual SVG code with the path d coor
 rather than linking to separate image files. 
 At that moment i was just starting off and dint know much about all this stuffs at that time my main priority was to make sure there are no error so i can progress.
 
+
+For dark and light mode implementaion i followed a youtube tutorial. 
+I want it to have dark mode on default but that yt had light mode on default so i took help from AI to do so. 
+There was no need for me to do that i just wanted to save my eyes.
+
